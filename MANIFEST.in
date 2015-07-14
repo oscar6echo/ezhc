@@ -1,0 +1,11 @@
+
+# subfolders
+recursive-include ezhc/api *
+recursive-include ezhc/samples *
+
+# Demo notebook
+include demo_ezhc.ipynb
+
+# Misc
+include LICENSE.txt
+include README.md
