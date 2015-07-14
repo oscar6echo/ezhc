@@ -1,4 +1,5 @@
 # necessary to push to PyPI
+# https://tom-christie.github.io/articles/pypi/
 
 # subfolders
 recursive-include ezhc/api *
