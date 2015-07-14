@@ -1,3 +1,4 @@
+# necessary to push to PyPI
 
 # subfolders
 recursive-include ezhc/api *
