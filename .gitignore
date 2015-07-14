@@ -1,2 +1,6 @@
 *.py[cod]
 **.ipynb_checkpoints
+**.egg-info
+dist
+MANIFEST
+push_to_repo.py
