@@ -1,4 +1,4 @@
-
+# necessary to push to PyPI
 # cf. http://peterdowns.com/posts/first-time-with-pypi.html
 # cf. https://tom-christie.github.io/articles/pypi/
 
