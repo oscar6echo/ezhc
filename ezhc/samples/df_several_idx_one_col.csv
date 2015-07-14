@@ -1,0 +1,517 @@
+Region,Country,Cause,Value
+Europe,Albania,Communicable diseases,46.5
+Europe,Albania,Injuries,48.0
+Europe,Albania,Noncommunicable diseases,671.6
+Europe,Armenia,Communicable diseases,45.0
+Europe,Armenia,Injuries,49.2
+Europe,Armenia,Noncommunicable diseases,847.5
+Europe,Austria,Communicable diseases,12.6
+Europe,Austria,Injuries,30.6
+Europe,Austria,Noncommunicable diseases,359.5
+Europe,Azerbaijan,Communicable diseases,70.8
+Europe,Azerbaijan,Injuries,33.6
+Europe,Azerbaijan,Noncommunicable diseases,664.3
+Europe,Belarus,Communicable diseases,28.3
+Europe,Belarus,Injuries,91.3
+Europe,Belarus,Noncommunicable diseases,682.5
+Europe,Belgium,Communicable diseases,27.8
+Europe,Belgium,Injuries,38.9
+Europe,Belgium,Noncommunicable diseases,356.8
+Europe,Bosnia and Herzegovina,Communicable diseases,20.0
+Europe,Bosnia and Herzegovina,Injuries,42.4
+Europe,Bosnia and Herzegovina,Noncommunicable diseases,512.5
+Europe,Bulgaria,Communicable diseases,33.4
+Europe,Bulgaria,Injuries,36.4
+Europe,Bulgaria,Noncommunicable diseases,638.2
+Europe,Croatia,Communicable diseases,12.2
+Europe,Croatia,Injuries,40.1
+Europe,Croatia,Noncommunicable diseases,495.8
+Europe,Cyprus,Communicable diseases,16.2
+Europe,Cyprus,Injuries,26.6
+Europe,Cyprus,Noncommunicable diseases,333.0
+Europe,Czech Republic,Communicable diseases,27.0
+Europe,Czech Republic,Injuries,39.1
+Europe,Czech Republic,Noncommunicable diseases,460.7
+Europe,Denmark,Communicable diseases,29.5
+Europe,Denmark,Injuries,22.5
+Europe,Denmark,Noncommunicable diseases,406.1
+Europe,Estonia,Communicable diseases,18.5
+Europe,Estonia,Injuries,47.0
+Europe,Estonia,Noncommunicable diseases,510.7
+Europe,Finland,Communicable diseases,9.0
+Europe,Finland,Injuries,38.7
+Europe,Finland,Noncommunicable diseases,366.6
+Europe,France,Communicable diseases,21.4
+Europe,France,Injuries,34.6
+Europe,France,Noncommunicable diseases,313.2
+Europe,Georgia,Communicable diseases,39.3
+Europe,Georgia,Injuries,32.2
+Europe,Georgia,Noncommunicable diseases,615.2
+Europe,Germany,Communicable diseases,21.6
+Europe,Germany,Injuries,23.0
+Europe,Germany,Noncommunicable diseases,365.1
+Europe,Greece,Communicable diseases,24.1
+Europe,Greece,Injuries,26.5
+Europe,Greece,Noncommunicable diseases,365.0
+Europe,Hungary,Communicable diseases,16.8
+Europe,Hungary,Injuries,44.3
+Europe,Hungary,Noncommunicable diseases,602.8
+Europe,Iceland,Communicable diseases,14.0
+Europe,Iceland,Injuries,29.0
+Europe,Iceland,Noncommunicable diseases,311.7
+Europe,Ireland,Communicable diseases,21.5
+Europe,Ireland,Injuries,31.8
+Europe,Ireland,Noncommunicable diseases,343.9
+Europe,Israel,Communicable diseases,31.2
+Europe,Israel,Injuries,20.8
+Europe,Israel,Noncommunicable diseases,311.2
+Europe,Italy,Communicable diseases,15.5
+Europe,Italy,Injuries,20.1
+Europe,Italy,Noncommunicable diseases,303.6
+Europe,Kazakhstan,Communicable diseases,55.3
+Europe,Kazakhstan,Injuries,101.6
+Europe,Kazakhstan,Noncommunicable diseases,949.7
+Europe,Kyrgyzstan,Communicable diseases,65.8
+Europe,Kyrgyzstan,Injuries,65.1
+Europe,Kyrgyzstan,Noncommunicable diseases,835.4
+Europe,Latvia,Communicable diseases,26.0
+Europe,Latvia,Injuries,54.5
+Europe,Latvia,Noncommunicable diseases,623.7
+Europe,Lithuania,Communicable diseases,25.5
+Europe,Lithuania,Injuries,76.4
+Europe,Lithuania,Noncommunicable diseases,580.6
+Europe,Luxembourg,Communicable diseases,20.5
+Europe,Luxembourg,Injuries,31.1
+Europe,Luxembourg,Noncommunicable diseases,317.8
+Europe,Malta,Communicable diseases,23.6
+Europe,Malta,Injuries,19.0
+Europe,Malta,Noncommunicable diseases,364.5
+Europe,Montenegro,Communicable diseases,18.7
+Europe,Montenegro,Injuries,41.2
+Europe,Montenegro,Noncommunicable diseases,571.5
+Europe,Netherlands,Communicable diseases,25.5
+Europe,Netherlands,Injuries,22.3
+Europe,Netherlands,Noncommunicable diseases,355.2
+Europe,Norway,Communicable diseases,25.2
+Europe,Norway,Injuries,25.6
+Europe,Norway,Noncommunicable diseases,336.6
+Europe,Poland,Communicable diseases,22.6
+Europe,Poland,Injuries,48.9
+Europe,Poland,Noncommunicable diseases,494.5
+Europe,Portugal,Communicable diseases,39.9
+Europe,Portugal,Injuries,25.2
+Europe,Portugal,Noncommunicable diseases,343.3
+Europe,Republic of Moldova,Communicable diseases,44.5
+Europe,Republic of Moldova,Injuries,75.7
+Europe,Republic of Moldova,Noncommunicable diseases,787.6
+Europe,Romania,Communicable diseases,38.5
+Europe,Romania,Injuries,40.7
+Europe,Romania,Noncommunicable diseases,612.2
+Europe,Russian Federation,Communicable diseases,73.8
+Europe,Russian Federation,Injuries,102.8
+Europe,Russian Federation,Noncommunicable diseases,790.3
+Europe,Serbia,Communicable diseases,19.4
+Europe,Serbia,Injuries,32.0
+Europe,Serbia,Noncommunicable diseases,657.7
+Europe,Slovakia,Communicable diseases,35.3
+Europe,Slovakia,Injuries,39.1
+Europe,Slovakia,Noncommunicable diseases,532.5
+Europe,Slovenia,Communicable diseases,15.4
+Europe,Slovenia,Injuries,44.2
+Europe,Slovenia,Noncommunicable diseases,369.2
+Europe,Spain,Communicable diseases,19.1
+Europe,Spain,Injuries,17.8
+Europe,Spain,Noncommunicable diseases,323.1
+Europe,Sweden,Communicable diseases,19.3
+Europe,Sweden,Injuries,26.1
+Europe,Sweden,Noncommunicable diseases,333.5
+Europe,Switzerland,Communicable diseases,14.5
+Europe,Switzerland,Injuries,25.4
+Europe,Switzerland,Noncommunicable diseases,291.6
+Europe,Tajikistan,Communicable diseases,147.7
+Europe,Tajikistan,Injuries,51.6
+Europe,Tajikistan,Noncommunicable diseases,752.6
+Europe,The former Yugoslav republic of Macedonia,Communicable diseases,16.9
+Europe,The former Yugoslav republic of Macedonia,Injuries,24.0
+Europe,The former Yugoslav republic of Macedonia,Noncommunicable diseases,636.5
+Europe,Turkey,Communicable diseases,43.9
+Europe,Turkey,Injuries,39.1
+Europe,Turkey,Noncommunicable diseases,555.2
+Europe,Turkmenistan,Communicable diseases,115.8
+Europe,Turkmenistan,Injuries,93.0
+Europe,Turkmenistan,Noncommunicable diseases,1025.1
+Europe,Ukraine,Communicable diseases,69.3
+Europe,Ukraine,Injuries,67.3
+Europe,Ukraine,Noncommunicable diseases,749.0
+Europe,United Kingdom of Great Britain and Northern Ireland,Communicable diseases,28.5
+Europe,United Kingdom of Great Britain and Northern Ireland,Injuries,21.5
+Europe,United Kingdom of Great Britain and Northern Ireland,Noncommunicable diseases,358.8
+Europe,Uzbekistan,Communicable diseases,85.8
+Europe,Uzbekistan,Injuries,47.4
+Europe,Uzbekistan,Noncommunicable diseases,810.9
+Western Pacific,Australia,Communicable diseases,13.7
+Western Pacific,Australia,Injuries,28.2
+Western Pacific,Australia,Noncommunicable diseases,302.9
+Western Pacific,Brunei Darussalam,Communicable diseases,56.1
+Western Pacific,Brunei Darussalam,Injuries,44.6
+Western Pacific,Brunei Darussalam,Noncommunicable diseases,475.3
+Western Pacific,Cambodia,Communicable diseases,227.5
+Western Pacific,Cambodia,Injuries,62.2
+Western Pacific,Cambodia,Noncommunicable diseases,394.0
+Western Pacific,China,Communicable diseases,41.4
+Western Pacific,China,Injuries,50.4
+Western Pacific,China,Noncommunicable diseases,576.3
+Western Pacific,Fiji,Communicable diseases,105.2
+Western Pacific,Fiji,Injuries,64.0
+Western Pacific,Fiji,Noncommunicable diseases,804.0
+Western Pacific,Japan,Communicable diseases,33.9
+Western Pacific,Japan,Injuries,40.5
+Western Pacific,Japan,Noncommunicable diseases,244.2
+Western Pacific,Lao People's Democratic Republic,Communicable diseases,328.7
+Western Pacific,Lao People's Democratic Republic,Injuries,75.2
+Western Pacific,Lao People's Democratic Republic,Noncommunicable diseases,680.0
+Western Pacific,Malaysia,Communicable diseases,117.4
+Western Pacific,Malaysia,Injuries,62.8
+Western Pacific,Malaysia,Noncommunicable diseases,563.2
+Western Pacific,Mongolia,Communicable diseases,82.8
+Western Pacific,Mongolia,Injuries,69.4
+Western Pacific,Mongolia,Noncommunicable diseases,966.5
+Western Pacific,New Zealand,Communicable diseases,18.0
+Western Pacific,New Zealand,Injuries,32.9
+Western Pacific,New Zealand,Noncommunicable diseases,313.6
+Western Pacific,Papua New Guinea,Communicable diseases,554.3
+Western Pacific,Papua New Guinea,Injuries,100.1
+Western Pacific,Papua New Guinea,Noncommunicable diseases,693.2
+Western Pacific,Philippines,Communicable diseases,226.4
+Western Pacific,Philippines,Injuries,53.8
+Western Pacific,Philippines,Noncommunicable diseases,720.0
+Western Pacific,Republic of Korea,Communicable diseases,33.8
+Western Pacific,Republic of Korea,Injuries,53.1
+Western Pacific,Republic of Korea,Noncommunicable diseases,302.1
+Western Pacific,Singapore,Communicable diseases,66.2
+Western Pacific,Singapore,Injuries,17.5
+Western Pacific,Singapore,Noncommunicable diseases,264.8
+Western Pacific,Solomon Islands,Communicable diseases,230.6
+Western Pacific,Solomon Islands,Injuries,75.1
+Western Pacific,Solomon Islands,Noncommunicable diseases,709.7
+Western Pacific,Viet Nam,Communicable diseases,96.0
+Western Pacific,Viet Nam,Injuries,59.0
+Western Pacific,Viet Nam,Noncommunicable diseases,435.4
+Africa,Algeria,Communicable diseases,97.8
+Africa,Algeria,Injuries,53.8
+Africa,Algeria,Noncommunicable diseases,710.4
+Africa,Angola,Communicable diseases,873.3
+Africa,Angola,Injuries,137.8
+Africa,Angola,Noncommunicable diseases,768.4
+Africa,Benin,Communicable diseases,577.3
+Africa,Benin,Injuries,98.0
+Africa,Benin,Noncommunicable diseases,761.5
+Africa,Botswana,Communicable diseases,555.3
+Africa,Botswana,Injuries,87.9
+Africa,Botswana,Noncommunicable diseases,612.2
+Africa,Burkina Faso,Communicable diseases,648.2
+Africa,Burkina Faso,Injuries,119.3
+Africa,Burkina Faso,Noncommunicable diseases,784.0
+Africa,Burundi,Communicable diseases,704.8
+Africa,Burundi,Injuries,146.6
+Africa,Burundi,Noncommunicable diseases,729.5
+Africa,C\u00f4te d'Ivoire,Communicable diseases,861.3
+Africa,C\u00f4te d'Ivoire,Injuries,124.0
+Africa,C\u00f4te d'Ivoire,Noncommunicable diseases,794.0
+Africa,Cabo Verde,Communicable diseases,141.9
+Africa,Cabo Verde,Injuries,54.4
+Africa,Cabo Verde,Noncommunicable diseases,482.1
+Africa,Cameroon,Communicable diseases,768.8
+Africa,Cameroon,Injuries,106.0
+Africa,Cameroon,Noncommunicable diseases,675.2
+Africa,Central African Republic,Communicable diseases,1212.1
+Africa,Central African Republic,Injuries,107.9
+Africa,Central African Republic,Noncommunicable diseases,550.8
+Africa,Chad,Communicable diseases,1070.9
+Africa,Chad,Injuries,114.5
+Africa,Chad,Noncommunicable diseases,712.6
+Africa,Comoros,Communicable diseases,494.6
+Africa,Comoros,Injuries,132.4
+Africa,Comoros,Noncommunicable diseases,695.5
+Africa,Congo,Communicable diseases,666.9
+Africa,Congo,Injuries,89.0
+Africa,Congo,Noncommunicable diseases,632.3
+Africa,Democratic Republic of the Congo,Communicable diseases,920.7
+Africa,Democratic Republic of the Congo,Injuries,137.1
+Africa,Democratic Republic of the Congo,Noncommunicable diseases,724.4
+Africa,Equatorial Guinea,Communicable diseases,756.8
+Africa,Equatorial Guinea,Injuries,133.6
+Africa,Equatorial Guinea,Noncommunicable diseases,729.0
+Africa,Eritrea,Communicable diseases,506.0
+Africa,Eritrea,Injuries,118.7
+Africa,Eritrea,Noncommunicable diseases,671.9
+Africa,Ethiopia,Communicable diseases,558.9
+Africa,Ethiopia,Injuries,94.5
+Africa,Ethiopia,Noncommunicable diseases,476.3
+Africa,Gabon,Communicable diseases,589.4
+Africa,Gabon,Injuries,77.4
+Africa,Gabon,Noncommunicable diseases,504.6
+Africa,Gambia,Communicable diseases,590.5
+Africa,Gambia,Injuries,96.0
+Africa,Gambia,Noncommunicable diseases,629.6
+Africa,Ghana,Communicable diseases,476.0
+Africa,Ghana,Injuries,76.1
+Africa,Ghana,Noncommunicable diseases,669.9
+Africa,Guinea,Communicable diseases,679.6
+Africa,Guinea,Injuries,96.0
+Africa,Guinea,Noncommunicable diseases,681.1
+Africa,Guinea-Bissau,Communicable diseases,869.8
+Africa,Guinea-Bissau,Injuries,111.6
+Africa,Guinea-Bissau,Noncommunicable diseases,764.7
+Africa,Kenya,Communicable diseases,657.5
+Africa,Kenya,Injuries,101.1
+Africa,Kenya,Noncommunicable diseases,514.7
+Africa,Lesotho,Communicable diseases,1110.5
+Africa,Lesotho,Injuries,142.5
+Africa,Lesotho,Noncommunicable diseases,671.8
+Africa,Liberia,Communicable diseases,609.1
+Africa,Liberia,Injuries,83.3
+Africa,Liberia,Noncommunicable diseases,656.9
+Africa,Madagascar,Communicable diseases,429.9
+Africa,Madagascar,Injuries,89.0
+Africa,Madagascar,Noncommunicable diseases,648.6
+Africa,Malawi,Communicable diseases,777.6
+Africa,Malawi,Injuries,97.7
+Africa,Malawi,Noncommunicable diseases,655.0
+Africa,Mali,Communicable diseases,588.3
+Africa,Mali,Injuries,119.5
+Africa,Mali,Noncommunicable diseases,866.1
+Africa,Mauritania,Communicable diseases,619.1
+Africa,Mauritania,Injuries,83.4
+Africa,Mauritania,Noncommunicable diseases,555.1
+Africa,Mauritius,Communicable diseases,61.8
+Africa,Mauritius,Injuries,44.1
+Africa,Mauritius,Noncommunicable diseases,576.5
+Africa,Mozambique,Communicable diseases,998.1
+Africa,Mozambique,Injuries,175.3
+Africa,Mozambique,Noncommunicable diseases,593.7
+Africa,Namibia,Communicable diseases,356.6
+Africa,Namibia,Injuries,76.4
+Africa,Namibia,Noncommunicable diseases,580.2
+Africa,Niger,Communicable diseases,740.0
+Africa,Niger,Injuries,97.6
+Africa,Niger,Noncommunicable diseases,649.1
+Africa,Nigeria,Communicable diseases,866.2
+Africa,Nigeria,Injuries,145.6
+Africa,Nigeria,Noncommunicable diseases,673.7
+Africa,Rwanda,Communicable diseases,401.7
+Africa,Rwanda,Injuries,106.3
+Africa,Rwanda,Noncommunicable diseases,585.3
+Africa,Senegal,Communicable diseases,587.7
+Africa,Senegal,Injuries,89.3
+Africa,Senegal,Noncommunicable diseases,558.1
+Africa,Sierra Leone,Communicable diseases,1327.4
+Africa,Sierra Leone,Injuries,149.5
+Africa,Sierra Leone,Noncommunicable diseases,963.5
+Africa,South Africa,Communicable diseases,611.6
+Africa,South Africa,Injuries,103.5
+Africa,South Africa,Noncommunicable diseases,710.9
+Africa,Swaziland,Communicable diseases,884.3
+Africa,Swaziland,Injuries,119.5
+Africa,Swaziland,Noncommunicable diseases,702.4
+Africa,Togo,Communicable diseases,681.8
+Africa,Togo,Injuries,93.0
+Africa,Togo,Noncommunicable diseases,679.0
+Africa,Uganda,Communicable diseases,696.7
+Africa,Uganda,Injuries,166.8
+Africa,Uganda,Noncommunicable diseases,664.4
+Africa,United Republic of Tanzania,Communicable diseases,584.2
+Africa,United Republic of Tanzania,Injuries,129.2
+Africa,United Republic of Tanzania,Noncommunicable diseases,569.8
+Africa,Zambia,Communicable diseases,764.3
+Africa,Zambia,Injuries,156.4
+Africa,Zambia,Noncommunicable diseases,587.4
+Africa,Zimbabwe,Communicable diseases,711.3
+Africa,Zimbabwe,Injuries,82.5
+Africa,Zimbabwe,Noncommunicable diseases,598.9
+Americas,Argentina,Communicable diseases,68.7
+Americas,Argentina,Injuries,50.7
+Americas,Argentina,Noncommunicable diseases,467.3
+Americas,Bahamas,Communicable diseases,122.0
+Americas,Bahamas,Injuries,45.7
+Americas,Bahamas,Noncommunicable diseases,465.2
+Americas,Barbados,Communicable diseases,60.8
+Americas,Barbados,Injuries,28.0
+Americas,Barbados,Noncommunicable diseases,404.5
+Americas,Belize,Communicable diseases,104.6
+Americas,Belize,Injuries,82.0
+Americas,Belize,Noncommunicable diseases,470.7
+Americas,Bolivia (Plurinational State of),Communicable diseases,226.2
+Americas,Bolivia (Plurinational State of),Injuries,100.0
+Americas,Bolivia (Plurinational State of),Noncommunicable diseases,635.3
+Americas,Brazil,Communicable diseases,92.8
+Americas,Brazil,Injuries,80.2
+Americas,Brazil,Noncommunicable diseases,513.8
+Americas,Canada,Communicable diseases,22.6
+Americas,Canada,Injuries,31.3
+Americas,Canada,Noncommunicable diseases,318.0
+Americas,Chile,Communicable diseases,36.3
+Americas,Chile,Injuries,41.2
+Americas,Chile,Noncommunicable diseases,366.5
+Americas,Colombia,Communicable diseases,55.0
+Americas,Colombia,Injuries,72.6
+Americas,Colombia,Noncommunicable diseases,377.3
+Americas,Costa Rica,Communicable diseases,30.5
+Americas,Costa Rica,Injuries,46.5
+Americas,Costa Rica,Noncommunicable diseases,391.8
+Americas,Cuba,Communicable diseases,33.2
+Americas,Cuba,Injuries,45.3
+Americas,Cuba,Noncommunicable diseases,421.8
+Americas,Dominican Republic,Communicable diseases,76.8
+Americas,Dominican Republic,Injuries,66.4
+Americas,Dominican Republic,Noncommunicable diseases,396.0
+Americas,Ecuador,Communicable diseases,97.3
+Americas,Ecuador,Injuries,83.7
+Americas,Ecuador,Noncommunicable diseases,409.7
+Americas,El Salvador,Communicable diseases,96.2
+Americas,El Salvador,Injuries,157.7
+Americas,El Salvador,Noncommunicable diseases,474.9
+Americas,Guatemala,Communicable diseases,212.7
+Americas,Guatemala,Injuries,111.0
+Americas,Guatemala,Noncommunicable diseases,409.4
+Americas,Guyana,Communicable diseases,177.2
+Americas,Guyana,Injuries,150.0
+Americas,Guyana,Noncommunicable diseases,1024.2
+Americas,Haiti,Communicable diseases,405.4
+Americas,Haiti,Injuries,89.3
+Americas,Haiti,Noncommunicable diseases,724.6
+Americas,Honduras,Communicable diseases,117.5
+Americas,Honduras,Injuries,80.8
+Americas,Honduras,Noncommunicable diseases,441.5
+Americas,Jamaica,Communicable diseases,97.0
+Americas,Jamaica,Injuries,51.5
+Americas,Jamaica,Noncommunicable diseases,519.1
+Americas,Mexico,Communicable diseases,57.0
+Americas,Mexico,Injuries,63.2
+Americas,Mexico,Noncommunicable diseases,468.3
+Americas,Nicaragua,Communicable diseases,75.2
+Americas,Nicaragua,Injuries,64.4
+Americas,Nicaragua,Noncommunicable diseases,546.6
+Americas,Panama,Communicable diseases,86.1
+Americas,Panama,Injuries,67.4
+Americas,Panama,Noncommunicable diseases,372.9
+Americas,Paraguay,Communicable diseases,77.3
+Americas,Paraguay,Injuries,67.6
+Americas,Paraguay,Noncommunicable diseases,485.5
+Americas,Peru,Communicable diseases,121.3
+Americas,Peru,Injuries,47.9
+Americas,Peru,Noncommunicable diseases,363.5
+Americas,Suriname,Communicable diseases,83.7
+Americas,Suriname,Injuries,70.5
+Americas,Suriname,Noncommunicable diseases,374.8
+Americas,Trinidad and Tobago,Communicable diseases,80.4
+Americas,Trinidad and Tobago,Injuries,98.4
+Americas,Trinidad and Tobago,Noncommunicable diseases,705.3
+Americas,United States of America,Communicable diseases,31.3
+Americas,United States of America,Injuries,44.2
+Americas,United States of America,Noncommunicable diseases,412.8
+Americas,Uruguay,Communicable diseases,46.2
+Americas,Uruguay,Injuries,53.8
+Americas,Uruguay,Noncommunicable diseases,446.0
+Americas,Venezuela (Bolivarian Republic of),Communicable diseases,58.2
+Americas,Venezuela (Bolivarian Republic of),Injuries,103.2
+Americas,Venezuela (Bolivarian Republic of),Noncommunicable diseases,410.6
+Eastern Mediterranean,Afghanistan,Communicable diseases,362.7
+Eastern Mediterranean,Afghanistan,Injuries,169.2
+Eastern Mediterranean,Afghanistan,Noncommunicable diseases,846.3
+Eastern Mediterranean,Bahrain,Communicable diseases,48.5
+Eastern Mediterranean,Bahrain,Injuries,33.5
+Eastern Mediterranean,Bahrain,Noncommunicable diseases,505.7
+Eastern Mediterranean,Djibouti,Communicable diseases,626.0
+Eastern Mediterranean,Djibouti,Injuries,106.0
+Eastern Mediterranean,Djibouti,Noncommunicable diseases,631.1
+Eastern Mediterranean,Egypt,Communicable diseases,74.3
+Eastern Mediterranean,Egypt,Injuries,33.5
+Eastern Mediterranean,Egypt,Noncommunicable diseases,781.7
+Eastern Mediterranean,Iran (Islamic Republic of),Communicable diseases,56.2
+Eastern Mediterranean,Iran (Islamic Republic of),Injuries,74.9
+Eastern Mediterranean,Iran (Islamic Republic of),Noncommunicable diseases,569.3
+Eastern Mediterranean,Iraq,Communicable diseases,87.0
+Eastern Mediterranean,Iraq,Injuries,128.5
+Eastern Mediterranean,Iraq,Noncommunicable diseases,715.5
+Eastern Mediterranean,Jordan,Communicable diseases,52.5
+Eastern Mediterranean,Jordan,Injuries,53.5
+Eastern Mediterranean,Jordan,Noncommunicable diseases,640.3
+Eastern Mediterranean,Kuwait,Communicable diseases,82.5
+Eastern Mediterranean,Kuwait,Injuries,25.4
+Eastern Mediterranean,Kuwait,Noncommunicable diseases,406.3
+Eastern Mediterranean,Lebanon,Communicable diseases,30.5
+Eastern Mediterranean,Lebanon,Injuries,40.6
+Eastern Mediterranean,Lebanon,Noncommunicable diseases,384.6
+Eastern Mediterranean,Libya,Communicable diseases,52.6
+Eastern Mediterranean,Libya,Injuries,62.8
+Eastern Mediterranean,Libya,Noncommunicable diseases,550.0
+Eastern Mediterranean,Morocco,Communicable diseases,131.5
+Eastern Mediterranean,Morocco,Injuries,47.0
+Eastern Mediterranean,Morocco,Noncommunicable diseases,707.7
+Eastern Mediterranean,Oman,Communicable diseases,84.2
+Eastern Mediterranean,Oman,Injuries,52.8
+Eastern Mediterranean,Oman,Noncommunicable diseases,478.2
+Eastern Mediterranean,Pakistan,Communicable diseases,296.0
+Eastern Mediterranean,Pakistan,Injuries,98.7
+Eastern Mediterranean,Pakistan,Noncommunicable diseases,669.3
+Eastern Mediterranean,Qatar,Communicable diseases,28.3
+Eastern Mediterranean,Qatar,Injuries,41.0
+Eastern Mediterranean,Qatar,Noncommunicable diseases,407.0
+Eastern Mediterranean,Saudi Arabia,Communicable diseases,71.3
+Eastern Mediterranean,Saudi Arabia,Injuries,41.1
+Eastern Mediterranean,Saudi Arabia,Noncommunicable diseases,549.4
+Eastern Mediterranean,Somalia,Communicable diseases,927.2
+Eastern Mediterranean,Somalia,Injuries,188.5
+Eastern Mediterranean,Somalia,Noncommunicable diseases,550.7
+Eastern Mediterranean,South Sudan,Communicable diseases,831.3
+Eastern Mediterranean,South Sudan,Injuries,143.4
+Eastern Mediterranean,South Sudan,Noncommunicable diseases,623.4
+Eastern Mediterranean,Sudan,Communicable diseases,495.0
+Eastern Mediterranean,Sudan,Injuries,133.6
+Eastern Mediterranean,Sudan,Noncommunicable diseases,551.0
+Eastern Mediterranean,Syrian Arab Republic,Communicable diseases,41.0
+Eastern Mediterranean,Syrian Arab Republic,Injuries,308.0
+Eastern Mediterranean,Syrian Arab Republic,Noncommunicable diseases,572.7
+Eastern Mediterranean,Tunisia,Communicable diseases,65.0
+Eastern Mediterranean,Tunisia,Injuries,39.1
+Eastern Mediterranean,Tunisia,Noncommunicable diseases,509.3
+Eastern Mediterranean,United Arab Emirates,Communicable diseases,35.6
+Eastern Mediterranean,United Arab Emirates,Injuries,31.5
+Eastern Mediterranean,United Arab Emirates,Noncommunicable diseases,546.8
+Eastern Mediterranean,Yemen,Communicable diseases,515.0
+Eastern Mediterranean,Yemen,Injuries,84.3
+Eastern Mediterranean,Yemen,Noncommunicable diseases,626.9
+South-East Asia,Bangladesh,Communicable diseases,234.6
+South-East Asia,Bangladesh,Injuries,64.0
+South-East Asia,Bangladesh,Noncommunicable diseases,548.9
+South-East Asia,Bhutan,Communicable diseases,186.9
+South-East Asia,Bhutan,Injuries,142.2
+South-East Asia,Bhutan,Noncommunicable diseases,572.8
+South-East Asia,Democratic People's Republic of Korea,Communicable diseases,117.3
+South-East Asia,Democratic People's Republic of Korea,Injuries,91.9
+South-East Asia,Democratic People's Republic of Korea,Noncommunicable diseases,751.4
+South-East Asia,India,Communicable diseases,253.0
+South-East Asia,India,Injuries,115.9
+South-East Asia,India,Noncommunicable diseases,682.3
+South-East Asia,Indonesia,Communicable diseases,162.4
+South-East Asia,Indonesia,Injuries,49.3
+South-East Asia,Indonesia,Noncommunicable diseases,680.1
+South-East Asia,Maldives,Communicable diseases,59.2
+South-East Asia,Maldives,Injuries,35.0
+South-East Asia,Maldives,Noncommunicable diseases,487.2
+South-East Asia,Myanmar,Communicable diseases,316.4
+South-East Asia,Myanmar,Injuries,102.0
+South-East Asia,Myanmar,Noncommunicable diseases,708.7
+South-East Asia,Nepal,Communicable diseases,251.8
+South-East Asia,Nepal,Injuries,88.7
+South-East Asia,Nepal,Noncommunicable diseases,678.1
+South-East Asia,Sri Lanka,Communicable diseases,75.5
+South-East Asia,Sri Lanka,Injuries,89.0
+South-East Asia,Sri Lanka,Noncommunicable diseases,501.2
+South-East Asia,Thailand,Communicable diseases,123.3
+South-East Asia,Thailand,Injuries,72.8
+South-East Asia,Thailand,Noncommunicable diseases,449.1
+South-East Asia,Timor-Leste,Communicable diseases,343.5
+South-East Asia,Timor-Leste,Injuries,69.2
+South-East Asia,Timor-Leste,Noncommunicable diseases,670.5

@@ -1,0 +1,39 @@
+Brand,Version,Market Share
+Internet Explorer,6.0,6.4
+Internet Explorer,7.0,3.55
+Internet Explorer,8.0,26.7
+Internet Explorer,9.0,16.96
+Firefox,2.0,0.09
+Firefox,3.0,0.36
+Firefox,3.5,0.36
+Firefox,3.6,1.87
+Firefox,4.0,0.5
+Firefox,5.0,0.31
+Firefox,6.0,0.32
+Firefox,7.0,0.29
+Firefox,8.0,0.55
+Firefox,9.0,0.65
+Firefox,10,0.9
+Firefox,11,4.72
+Firefox,12,6.72
+Firefox,13,2.16
+Firefox,14.0,0.1
+Chrome,10,0.09
+Chrome,11,0.1
+Chrome,12,0.16
+Chrome,13,0.13
+Chrome,14.0,0.25
+Chrome,15.0,0.18
+Chrome,16.0,0.45
+Chrome,17.0,1.13
+Chrome,18.0,8.27
+Chrome,19.0,7.73
+Chrome,20.0,0.24
+Safari,4.0,0.14
+Safari,4.1,0.12
+Safari,5.0,0.85
+Safari,5.1,3.53
+Opera,10.x,0.09
+Opera,11.x,1.3
+Opera,12.x,0.15
+Unknown,Unknown,0.29

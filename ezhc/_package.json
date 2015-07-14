@@ -1,0 +1,8 @@
+{
+    "repo": "cdo-eur",
+    "version": "0.4",
+    "depends": [
+        "ipython >=3.1",
+        "pandas >=0.16.1"
+    ]
+}
