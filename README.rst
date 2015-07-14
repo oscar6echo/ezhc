@@ -10,8 +10,8 @@ ezhc
 | **ezhc** is a wrapper that lets you transparently access the full
   configuration options of the library as described in their APIs,
   directly from the `Jupyter notebook`_:
-| + `Highcharts <http://api.highcharts.com/highcharts>`__
-| + `Highstock <http://api.highcharts.com/highstock>`__
+| * `Highcharts <http://api.highcharts.com/highcharts>`__
+| * `Highstock <http://api.highcharts.com/highstock>`__
 
 | You just need to store the data in a `pandas`_ dataframe.
 | See the examples in the notebook.
