@@ -5,11 +5,15 @@
 from distutils.core import setup
 from setuptools import find_packages
 
+with open('README.rst', encoding='utf-8') as f:
+    long_description = f.read()
+
 setup(
   name = 'ezhc',
   packages = ['ezhc'],
   version = '0.4.5',
   description = 'easy Highcharts, dynamic plots from pandas dataframes in the IPython notebook',
+  long_description = long_description,
   author = 'oscar6echo',
   author_email = 'olivier.borderies@gmail.com',
   url = 'https://github.com/oscar6echo/ezhc', # use the URL to the github repo
