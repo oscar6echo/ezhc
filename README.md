@@ -9,7 +9,7 @@ Currently only [Highcharts](http://www.highcharts.com/demo) and [Highstock](http
 + [Highstock](http://api.highcharts.com/highstock)
 
 You just need to store the data in a [pandas](http://pandas.pydata.org/) dataframe.
-See the examples in the [notebook](https://github.com/oscar6echo/ezhc/blob/master/demo_ezhc.ipynb).
+See the examples in the [notebook](http://nbviewer.ipython.org/github/oscar6echo/ezhc/blob/master/demo_ezhc.ipynb).
 
 To install run from command line:
 ```
