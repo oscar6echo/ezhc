@@ -17,7 +17,7 @@ ezhc
 | * `Highstock <http://api.highcharts.com/highstock>`__
 
 | You just need to store the data in a `pandas`_ dataframe.
-| See the examples in the notebook.
+| See the examples in the `notebook`_.
 
 
 .. _Highcharts: http://www.highcharts.com/
@@ -25,4 +25,4 @@ ezhc
 .. _Highmap: http://www.highcharts.com/maps/demo
 .. _Jupyter notebook: http://jupyter.org/
 .. _pandas: http://pandas.pydata.org/
-
+.. _notebook: http://nbviewer.ipython.org/github/oscar6echo/ezhc/blob/master/demo_ezhc.ipynb
