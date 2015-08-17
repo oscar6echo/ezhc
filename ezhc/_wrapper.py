@@ -75,7 +75,8 @@ class Wrapper(object):
             if self.path == attr.get(FULLNAME):
                 _desc = attr.get(DESCRIPTION)
                 _demo = attr.get(DEMO)
-
+                break
+                
         doc = "Documentation for '%s'\n\n" % self.path + \
                    "Description\n%s\n\n" % _desc
         if _demo:
@@ -99,12 +100,13 @@ class Wrapper(object):
                     if self.lib=='highstock':
                         return url_highstock.join(li)
 
-        if self.path !='':
+        if self.path != '':
             for attr in self.state._OPTION:
                 if self.path == attr.get(FULLNAME):
                     _desc = attr.get(DESCRIPTION)
                     _demo = attr.get(DEMO)
                     break
+
             doc = "<h4> Documentation for '%s' </h4><br>" % self.path 
             if _desc:
                 _desc = correct_url(_desc)

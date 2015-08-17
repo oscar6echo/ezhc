@@ -13,16 +13,36 @@ from scripts import JS_JSON_PARSE
 
 
 def html(options, lib='hicharts', save=False, js_preprocess=None, callback=None):
+    """
+    save=True will create a standalone HTML doc under localdir/saved (creating folfer save if necessary)
+    """
 
     def json_dumps(obj):
         return pd.io.json.dumps(obj)
 
 
-    _opt = dict(options)
+    _options = dict(options)
+
+    def clean_function_str(key, n=10):
+        """
+        Remove new line characters in the first say 10 characters
+        of the value corresponding to key in dictionary _options.
+        This value is a string that potentially starts with
+        'function' or ' function' or '[newline]function' or '[newline]function', etc
+        This cleaning makes js string parsing easier to recognize functions.
+        """
+        if key in _options.keys():
+            new_str = _options[key][:n].replace('\n', '').replace('\r', '') + _options[key][n:]
+            _options[key] = new_str
+
+
+    for k, v in _options.iteritems():
+        if isinstance(v, str):
+            clean_function_str(k) 
 
 
     chart_id = str(uuid.uuid4()).replace('-', '_')
-    _opt['chart']['renderTo'] = chart_id
+    _options['chart']['renderTo'] = chart_id
 
 
     js_init = """
@@ -30,7 +50,7 @@ def html(options, lib='hicharts', save=False, js_preprocess=None, callback=None)
     %s
     window.opt = jQuery.extend(true, {}, options);
     console.log('Highcharts/Highstock options accessible as opt');
-    """ % (json_dumps(_opt), JS_JSON_PARSE) 
+    """ % (json_dumps(_options), JS_JSON_PARSE) 
 
 
     if not js_preprocess:
@@ -47,7 +67,6 @@ def html(options, lib='hicharts', save=False, js_preprocess=None, callback=None)
         js_call = 'new Highcharts.Chart(options%s);' % (callback)
     elif lib=='highstock':
         js_call = 'new Highcharts.StockChart(options%s);' % (callback)
-
 
 
     html = """

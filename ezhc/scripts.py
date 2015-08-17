@@ -26,7 +26,7 @@ options = JSON.parse(options, function(key, value) {
             var endArgs = value.indexOf(')');
 
             return new Function(value.substring(startArgs, endArgs),
-                                 value.substring(startBody, endBody));
+                                value.substring(startBody, endBody));
         }
 
         if (value.substr(0,9)=="(function") {
