@@ -4,10 +4,10 @@ from IPython.display import HTML, display
 
 
 
-
 JS_LIBS_ONE = json.dumps([
-    'http://code.highcharts.com/stock/highstock.js', # contains highcharts
-    'https://rawgit.com/caldwell/renderjson/master/renderjson.js',
+    'http://code.highcharts.com/stock/highstock.js',
+    'https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js',
+    'http://d3js.org/d3.v3.min.js',
 ])
 
 JS_LIBS_ONE_sep = ';'.join(map(lambda x: 'console.log("'+x+'")', json.loads(JS_LIBS_ONE)))+';'
@@ -19,6 +19,7 @@ JS_LIBS_TWO = json.dumps([
 'http://code.highcharts.com/modules/exporting.js',
 'http://code.highcharts.com/modules/heatmap.js',
 'http://code.highcharts.com/modules/treemap.js',
+'http://highcharts.github.io/export-csv/export-csv.js',
 ])
 
 JS_LIBS_TWO_sep = ';'.join(map(lambda x: 'console.log("'+x+'")', json.loads(JS_LIBS_TWO)))+';'
@@ -48,7 +49,7 @@ JS_SAVE = [
 
 
 API_DIR = 'api'
-SCRIPTS_DIR = 'scripts'
+SCRIPT_DIR = 'script'
 
 HC_OBJECT_FILE = 'hc_object.json'
 HC_OPTION_FILE = 'hc_option.json'
@@ -59,7 +60,6 @@ HS_OPTION_FILE = 'hs_option.json'
 FULLNAME = 'fullname'
 DESCRIPTION = 'description'
 DEMO = 'demo'
-PARAMS = 'demo'
 
 
 

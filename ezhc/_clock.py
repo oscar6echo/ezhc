@@ -11,7 +11,7 @@ class Clock(Highcharts):
 
     def __init__(self):
 
-        self.js_preprocess = """
+        self.js_extra = """
         function getNow() {
             var now = new Date();
 
@@ -159,7 +159,7 @@ class Clock(Highcharts):
 
 
     def _repr_html_(self):
-        return self.g.html(js_preprocess=self.js_preprocess, callback=self.callback)
+        return self.g.html(js_extra=self.js_extra, callback=self.callback)
 
 
 

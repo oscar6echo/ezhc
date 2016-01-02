@@ -12,7 +12,8 @@ from scripts import JS_JSON_PARSE
 
 
 
-def html(options, lib='hicharts', save=False, js_preprocess=None, callback=None):
+def html(options, lib='hicharts', save=False, save_name=None,
+         html_init=None, js_option_postprocess=None, js_extra=None, callback=None):
     """
     save=True will create a standalone HTML doc under localdir/saved (creating folfer save if necessary)
     """
@@ -21,58 +22,41 @@ def html(options, lib='hicharts', save=False, js_preprocess=None, callback=None)
         return pd.io.json.dumps(obj)
 
 
-    _options = dict(options)
-
-    def clean_function_str(key, n=10):
-        """
-        Remove new line characters in the first say 10 characters
-        of the value corresponding to key in dictionary _options.
-        This value is a string that potentially starts with
-        'function' or ' function' or '[newline]function' or '[newline]function', etc
-        This cleaning makes js string parsing easier to recognize functions.
-        """
-        if key in _options.keys():
-            new_str = _options[key][:n].replace('\n', '').replace('\r', '') + _options[key][n:]
-            _options[key] = new_str
-
-
-    for k, v in _options.iteritems():
-        if isinstance(v, str):
-            clean_function_str(k) 
-
-
     chart_id = str(uuid.uuid4()).replace('-', '_')
-    _options['chart']['renderTo'] = chart_id
+    _options = dict(options)
+    _options['chart']['renderTo'] = chart_id+'container_chart'
+
+    # HTML
+    if html_init:
+        html = html_init.replace('__uuid__', chart_id)
+    else:
+        html = """
+        <div id="__uuid__"><div id="__uuid__container_chart"></div></div>
+        """.replace('__uuid__', chart_id)
 
 
-    js_init = """
+    # JS
+    js_option_postprocess = js_option_postprocess.replace('__uuid__', chart_id) if js_option_postprocess else ''
+    js_extra = js_extra.replace('__uuid__', chart_id) if js_extra else ''
+    callback = ', '+callback.replace('__uuid__', chart_id) if callback else ''
+
+    js_option = """
     var options = %s;
+    %s
     %s
     window.opt = jQuery.extend(true, {}, options);
     console.log('Highcharts/Highstock options accessible as opt');
-    """ % (json_dumps(_options), JS_JSON_PARSE) 
+    """ % (json_dumps(_options), JS_JSON_PARSE, js_option_postprocess) 
 
-
-    if not js_preprocess:
-        js_preprocess = ''
-
-
-    if callback:
-        callback = ', ' + callback
-    else:
-        callback = ''
-    
 
     if lib=='highcharts':
-        js_call = 'new Highcharts.Chart(options%s);' % (callback)
+        js_call = 'window.chart = new Highcharts.Chart(options%s);' % (callback)
     elif lib=='highstock':
-        js_call = 'new Highcharts.StockChart(options%s);' % (callback)
+        js_call = 'window.chart = new Highcharts.StockChart(options%s);' % (callback)
 
-
-    html = """
-    <div id="%s"></div>
-    """ % (chart_id)
-
+    js_debug = """
+    console.log('Highcharts/Highstock chart accessible as chart');
+    """
 
     js = """<script>
     require(%s, function() {
@@ -80,14 +64,18 @@ def html(options, lib='hicharts', save=False, js_preprocess=None, callback=None)
             %s
             %s
             %s
+            %s
         });
     });
-    </script>""" % (JS_LIBS_ONE, JS_LIBS_TWO, js_init, js_preprocess, js_call)
+    </script>""" % (JS_LIBS_ONE, JS_LIBS_TWO, js_option, js_extra, js_call, js_debug)
     
+    # save
     if save==True:
         if not os.path.exists('saved'):
             os.makedirs('saved')
-        with open(os.path.join('saved', 'plot_'+dt.datetime.now().strftime('%Y%m%d_%H%M%S')+'.html'), 'w') as f:
+        tag = save_name if save_name else 'plot'
+        dated = dt.datetime.now().strftime('%Y%m%d_%H%M%S')
+        with open(os.path.join('saved', tag+'_'+dated+'.html'), 'w') as f:
             contents = """
             <script src="%s"></script>
             <script src="%s"></script>
@@ -101,8 +89,9 @@ def html(options, lib='hicharts', save=False, js_preprocess=None, callback=None)
 
 
 
-def plot(options, lib='hicharts', save=False, js_preprocess=None, callback=None):
-    contents = html(options, lib, save, js_preprocess, callback)
+def plot(options, lib='hicharts', save=False, save_name=None,
+         html_init=None, js_option_postprocess=None, js_extra=None, callback=None):
+    contents = html(options, lib, save, save_name, html_init, js_option_postprocess, js_extra, callback)
     return HTML(contents)
 
   
