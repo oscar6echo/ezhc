@@ -44,9 +44,9 @@ def html(options, lib='hicharts', save=False, save_name=None,
     var options = %s;
     %s
     %s
-    window.opt = jQuery.extend(true, {}, options);
+    window.opt = $.extend(true, {}, options);
     console.log('Highcharts/Highstock options accessible as opt');
-    """ % (json_dumps(_options), JS_JSON_PARSE, js_option_postprocess) 
+    """ % (json_dumps(_options), JS_JSON_PARSE, js_option_postprocess)
 
 
     if lib=='highcharts':
@@ -68,7 +68,7 @@ def html(options, lib='hicharts', save=False, save_name=None,
         });
     });
     </script>""" % (JS_LIBS_ONE, JS_LIBS_TWO, js_option, js_extra, js_call, js_debug)
-    
+
     # save
     if save==True:
         if not os.path.exists('saved'):
@@ -82,10 +82,10 @@ def html(options, lib='hicharts', save=False, save_name=None,
             %s
             """ % (JS_SAVE[0], JS_SAVE[1], html+js)
             f.write(contents)
-    
+
     return html+js
 
-    
+
 
 
 
@@ -94,5 +94,5 @@ def plot(options, lib='hicharts', save=False, save_name=None,
     contents = html(options, lib, save, save_name, html_init, js_option_postprocess, js_extra, callback)
     return HTML(contents)
 
-  
+
 
