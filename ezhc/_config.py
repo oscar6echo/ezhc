@@ -44,7 +44,7 @@ def load_js_libs():
 
 JS_SAVE = [
     'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.17/require.js',
-    # 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js',
 ]
 
 

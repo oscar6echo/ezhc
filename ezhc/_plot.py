@@ -61,7 +61,6 @@ def html(options, lib='hicharts', save=False, save_name=None,
     js = """<script>
     require(%s, function() {
         require(%s, function() {
-            var jQuery = jquery;
             %s
             %s
             %s
