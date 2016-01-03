@@ -6,7 +6,6 @@ from IPython.display import HTML, display
 
 JS_LIBS_ONE = json.dumps([
     'http://code.highcharts.com/stock/highstock.js',
-    'https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js',
     'http://d3js.org/d3.v3.min.js',
 ])
 
@@ -14,6 +13,7 @@ JS_LIBS_ONE_sep = ';'.join(map(lambda x: 'console.log("'+x+'")', json.loads(JS_L
 
 
 JS_LIBS_TWO = json.dumps([
+    'https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js',
 'http://code.highcharts.com/stock/highcharts-more.js',
 'http://code.highcharts.com/modules/drilldown.js',
 'http://code.highcharts.com/modules/exporting.js',
