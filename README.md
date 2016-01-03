@@ -17,6 +17,8 @@ pip install ezhc
 ```
 
 There is an exception to the transparent wrapping approach:
+
 I added a datatable ([datatables.net](http://datatables.net/)) linked to the Highstock. It shows the performance / IRR / Volatility / Sharpe Ration / Max Drawdown over a modifiable time window (for financial data).
 Note: Due to CSS collisions between the datatables lib and the jupyter notebook, there is a slight visual difference between the notebook embedded plot and the standalone saved html file.
+
 See the example in the notebook.
