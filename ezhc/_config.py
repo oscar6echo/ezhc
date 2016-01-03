@@ -14,12 +14,12 @@ JS_LIBS_ONE_sep = ';'.join(map(lambda x: 'console.log("'+x+'")', json.loads(JS_L
 
 JS_LIBS_TWO = json.dumps([
     'https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js',
-'http://code.highcharts.com/stock/highcharts-more.js',
-'http://code.highcharts.com/modules/drilldown.js',
-'http://code.highcharts.com/modules/exporting.js',
-'http://code.highcharts.com/modules/heatmap.js',
-'http://code.highcharts.com/modules/treemap.js',
-'http://highcharts.github.io/export-csv/export-csv.js',
+    'http://code.highcharts.com/stock/highcharts-more.js',
+    'http://code.highcharts.com/modules/drilldown.js',
+    'http://code.highcharts.com/modules/exporting.js',
+    'http://code.highcharts.com/modules/heatmap.js',
+    'http://code.highcharts.com/modules/treemap.js',
+    'http://highcharts.github.io/export-csv/export-csv.js',
 ])
 
 JS_LIBS_TWO_sep = ';'.join(map(lambda x: 'console.log("'+x+'")', json.loads(JS_LIBS_TWO)))+';'
@@ -44,7 +44,7 @@ def load_js_libs():
 
 JS_SAVE = [
     'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.17/require.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js',
+    # 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js',
 ]
 
 
