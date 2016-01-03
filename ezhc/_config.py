@@ -51,6 +51,7 @@ JS_SAVE = [
 
 API_DIR = 'api'
 SCRIPT_DIR = 'script'
+SAMPLES_DIR = 'samples'
 
 HC_OBJECT_FILE = 'hc_object.json'
 HC_OPTION_FILE = 'hc_option.json'
@@ -62,9 +63,6 @@ FULLNAME = 'fullname'
 DESCRIPTION = 'description'
 DEMO = 'demo'
 
-
-
-SAMPLES_DIR = 'samples'
 
 
 DF_ONE_IDX_SEVERAL_COL = 'df_one_idx_several_col.csv'
