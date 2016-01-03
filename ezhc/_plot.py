@@ -59,6 +59,9 @@ def html(options, lib='hicharts', save=False, save_name=None,
     """
 
     js = """<script>
+    // nbconvert loads jquery.min.js  and require.js and at the top of the .ipnb
+    // then to make jquery available inside a require module
+    // the trick is http://www.manuel-strehl.de/dev/load_jquery_before_requirejs.en.html
     define('jquery', [], function() {
     return jQuery;
     });
