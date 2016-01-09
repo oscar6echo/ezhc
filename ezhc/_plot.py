@@ -23,8 +23,10 @@ def html(options, lib='hicharts', save=False, save_name=None,
 
 
     chart_id = str(uuid.uuid4()).replace('-', '_')
+
     _options = dict(options)
     _options['chart']['renderTo'] = chart_id+'container_chart'
+    json_options = json_dumps(_options).replace('__uuid__', chart_id)
 
     # HTML
     if html_init:
@@ -46,7 +48,7 @@ def html(options, lib='hicharts', save=False, save_name=None,
     %s
     window.opt = $.extend(true, {}, options);
     console.log('Highcharts/Highstock options accessible as opt');
-    """ % (json_dumps(_options), JS_JSON_PARSE, js_option_postprocess)
+    """ % (json_options, JS_JSON_PARSE, js_option_postprocess)
 
 
     if lib=='highcharts':

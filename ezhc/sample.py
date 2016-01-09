@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 
 from _config import SAMPLES_DIR, DF_ONE_IDX_SEVERAL_COL, DF_ONE_IDX_SEVERAL_COL_2, \
-                                    DF_ONE_IDX_ONE_COL, DF_ONE_IDX_TWO_COL, DF_TWO_IDX_ONE_COL, DF_SCATTER, \
-                                    DF_BUBBLE, DF_HEATMAP, DF_SEVERAL_IDX_ONE_COL
+                    DF_ONE_IDX_ONE_COL, DF_ONE_IDX_TWO_COL, DF_TWO_IDX_ONE_COL, DF_SCATTER, \
+                    DF_BUBBLE, DF_HEATMAP, DF_SEVERAL_IDX_ONE_COL
 
 
 def load_df(src):
@@ -16,7 +16,7 @@ def load_df(src):
 
 
 
-def df_timeseries(N=3, Nb_bd=100, seed=123456):
+def df_timeseries(N=3, Nb_bd=500, seed=123456):
     np.random.seed(seed)
     
     rate = 0.02

@@ -1,7 +1,9 @@
 
 from _wrapper import Wrapper
 from _plot import plot, html
-from scripts import JS_FINANCIAL_TIME_SERIES_TABLE, \
+from scripts import JS_FINANCIAL_TIME_SERIES_0, \
+                    JS_FINANCIAL_TIME_SERIES_TABLE_1, \
+                    JS_FINANCIAL_TIME_SERIES_TABLE_2, \
                     JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS, \
                     HTML_FINANCIAL_TIME_SERIES_TABLE, \
                     JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK
@@ -28,14 +30,6 @@ class Highstock(Wrapper):
         self.plotOptions.column.animation = False
 
 
-    def plot(self, save=False, save_name=None, html_init=None,
-             js_option_postprocess=None, js_extra=None, callback=None):
-        opt = self.to_dict()
-        return plot(opt, lib='highstock', save=save, save_name=save_name,
-            html_init=html_init, js_option_postprocess=js_option_postprocess,
-            js_extra=js_extra, callback=callback)
-
-
     def html(self, save=False, save_name=None, html_init=None,
              js_option_postprocess=None, js_extra=None, callback=None):
         opt = self.to_dict()
@@ -43,15 +37,44 @@ class Highstock(Wrapper):
             html_init=html_init, js_option_postprocess=js_option_postprocess,
             js_extra=js_extra, callback=callback)
 
-    def plot_with_table(self, save=False, save_name=None):
+
+    def plot(self, save=False, save_name=None, html_init=None,
+             js_option_postprocess=None, js_extra=None, callback=None):
+        """Only Highstock. No add-on."""
+        opt = self.to_dict()
+        js_extra = JS_FINANCIAL_TIME_SERIES_0
+        callback = JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK
+        
+        return plot(opt, lib='highstock', save=save, save_name=save_name,
+            html_init=html_init, js_option_postprocess=js_option_postprocess,
+            js_extra=js_extra, callback=callback)
+
+
+    def plot_with_table_1(self, save=False, save_name=None):
         """
+        Table with Perf, IRR, Vol, Sharpe Ratio, Max Drawdown
         Sharpe ratio is based on time series 'Cash' meaning cash compounded
         If no Cash colmun rates are assumed zero.
         """
         opt = self.to_dict()
         html_init = HTML_FINANCIAL_TIME_SERIES_TABLE
         js_option_postprocess = JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS
-        js_extra = JS_FINANCIAL_TIME_SERIES_TABLE
+        js_extra = JS_FINANCIAL_TIME_SERIES_TABLE_1
+        callback = JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK
+
+        return plot(opt, lib='highstock', save=save, save_name=save_name,
+            html_init=html_init, js_option_postprocess=js_option_postprocess,
+            js_extra=js_extra, callback=callback)
+
+
+    def plot_with_table_2(self, save=False, save_name=None):
+        """
+        Table with Min, Max, Average, Max Drawdown
+        """
+        opt = self.to_dict()
+        html_init = HTML_FINANCIAL_TIME_SERIES_TABLE
+        js_option_postprocess = JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS
+        js_extra = JS_FINANCIAL_TIME_SERIES_TABLE_2
         callback = JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK
 
         return plot(opt, lib='highstock', save=save, save_name=save_name,

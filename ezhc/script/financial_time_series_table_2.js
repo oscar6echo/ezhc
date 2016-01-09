@@ -9,70 +9,39 @@ var fmt_nb_flo = function(d) { if (isNumber(d)) { var f = d3.format("+,.2f"); re
                              }
 
 
-function cash_idx_in_series() {
-    var t = -1;
-    for (var i=1; i<opt.series.length; i++) {
-        if (opt.series[i].name=="Cash") {
-            t = i;
-            break;
-        }
-    }
-    return t;
-}
-
-
 function get_timeseries(chart, n, extremes) {
-    var data = chart.series[n].data,
+    // series.points is the points actually displayed, while series.data is the original full data
+    var data = chart.series[n].points,
         name = chart.series[n].name,
         ts = { 'name':name, 'data': [] };
         
     for (var i=0; i<data.length; i++) {
-        if (data[i] && data[i].x>=extremes.min && data[i].x<=extremes.max)  {
-            ts.data.push({t: data[i].x, v: data[i].y})
-        }
+        // if (data[i] && data[i].x>=extremes.min && data[i].x<=extremes.max)  {
+        //     ts.data.push({t: data[i].x, v: data[i].y})
+        // }
+        ts.data.push({t: data[i].x, v: data[i].y})
     }
     return ts;
 }
 
 
-function get_perf(ts) {
-    window.ts = ts;
-    var n = ts.data.length,
-        first_val = ts.data[0].v,
-        last_val = ts.data[n-1].v;
-    perf = last_val/first_val-1.0;
-    return perf;
+function get_min(ts) {
+    var arr = ts.data.map(function(d){ return d.v; });
+    return Math.min(...arr);
 }
 
 
-function get_irr(ts) {
-    var n = ts.data.length,
-        first_date = new Date(ts.data[0].t),
-        last_date = new Date(ts.data[n-1].t),
-        first_val = ts.data[0].v,
-        last_val = ts.data[n-1].v,
-        dt, irr;
-    dt = parseInt((last_date - first_date) / (1000 * 60 * 60 * 24));
-    irr = Math.pow((last_val/first_val), 365/dt)-1.0;
-    return irr;
+function get_max(ts) {
+    var arr = ts.data.map(function(d){ return d.v; });
+    return Math.max(...arr);
 }
 
 
-function get_vol(ts) {
-    var sum = 0,
-        date, prev_date = new Date(ts.data[0].t),
-        val, prev_val = ts.data[0].v,
-        dt, vol;
-    for (var i=1; i<ts.data.length; i++) {
-        date = new Date(ts.data[i].t);
-        val = ts.data[i].v;
-        dt = parseInt((date - prev_date) / (1000 * 60 * 60 * 24)); 
-        sum += Math.pow(Math.log(val/prev_val), 2)*365/dt;
-        prev_date = date;
-        prev_val = val;
-    }
-    vol = Math.sqrt(sum/(ts.data.length-1));
-    return vol;
+function get_avg(ts) {
+    window.ttt = ts;
+    var arr = ts.data.map(function(d){ return d.v; });
+    var s = arr.reduce(function(a, b){ return a+b; });
+    return s/arr.length;
 }
 
 
@@ -107,7 +76,7 @@ function create_table__uuid__(chart) {
 
     $('#__uuid__ .container_table').html('<table class="dtable display compact" cellspacing="0" style="width: 75%"></table>' );
 
-    var data = update_table_data(chart);
+    var data = update_table_data_2(chart);
     var dtable = init_table(chart, data);
     
     window.chart__uuid__ = chart;
@@ -124,8 +93,8 @@ function init_table(chart, data) {
         // dom: "CTftip",
         dom: "tB",
         "columnDefs": [
-            { "width": "35%", "targets": 0 },
-            { "width": "13%", "targets": [1, 2, 3, 4, 5] }
+            { "width": "40%", "targets": 0 },
+            { "width": "13%", "targets": [1, 2, 3, 4] }
           ],
     } );
     var dtablejq = $('#__uuid__ .dtable').dataTable();
@@ -147,7 +116,7 @@ function color_dtable_series_name(chart, dtablejq) {
 
 
 function update_table__uuid__() {
-    var data = update_table_data(chart__uuid__);
+    var data = update_table_data_2(chart__uuid__);
     var dtable = $('#__uuid__ .dtable').DataTable()
     dtable.clear();
     dtable.rows.add(data.arr);
@@ -159,60 +128,51 @@ function update_table__uuid__() {
 }
 
 
-function update_table_data(chart) {
+function update_table_data_2(chart) {
      
     var extremes = chart.xAxis[0].getExtremes(),
         results = [],
-        ts, perf, irr, vol, irr_cash, sharpe, max_dd;
+        ts, min, max, avf, max_dd;
 
     window.extremes = extremes;
 
-    var c = cash_idx_in_series();
-    if (c>0) {
-        cash_ts = get_timeseries(chart, c, extremes);
-        irr_cash = get_irr(cash_ts);
-    }
-    else {
-        irr_cash = 0;   
-    }
-
     for (var k=0; k<chart.series.length-1; k++) {
         var name = chart.series[k].name;
-
-        if (name!="Cash") {
-            ts = get_timeseries(chart, k, extremes);
-            perf = get_perf(ts);
-            irr = get_irr(ts);
-            vol = get_vol(ts);
-            sharpe = (irr-irr_cash)/vol;
-            nb_bdays = $("#__uuid__ .nb_bdays").val();
-            // console.log('test nb_bdays = '+nb_bdays);
-            max_dd = get_max_drawdown(ts, nb_bdays);
-            
-            results.push({'name': name,
-                          'perf': perf,
-                          'irr': irr,
-                          'vol': vol,
-                          'sharpe': sharpe,
-                          'max_dd': max_dd,
-                        })
-        }
+        console.log('name='+name);
+        
+        ts = get_timeseries(chart, k, extremes);
+        window.ts = ts;
+        window.ccc = chart;
+        min = get_min(ts);
+        console.log('min='+min);
+        max = get_max(ts);
+        console.log('max='+max);
+        avg = get_avg(ts);
+        console.log('avg='+avg);
+        nb_bdays = $("#__uuid__ .nb_bdays").val();
+        max_dd = get_max_drawdown(ts, nb_bdays);
+        
+        results.push({'name': name,
+                      'min': min,
+                      'max': max,
+                      'avg': avg,
+                      'max_dd': max_dd,
+                    })
 
     }
 
     dtable_arr = results.map(function(d) { return [  d.name,
-                                                    fmt_nb_pct(d.perf), 
-                                                    fmt_nb_pct(d.irr),
-                                                    fmt_nb_pct(d.vol),
-                                                    fmt_nb_flo(d.sharpe),
+                                                    fmt_nb_flo(d.min), 
+                                                    fmt_nb_flo(d.max),
+                                                    fmt_nb_flo(d.avg),
                                                     fmt_nb_pct(d.max_dd)
                                                     ]; });
-    dtable_col = ['Series', 'Perf', 'IRR', 'Vol', 'Sharpe', 'Max Drawdown'].map(function(d) { return {title: d}; });
+    dtable_col = ['Series', 'Min', 'Max', 'Avg', 'Max Drawdown'].map(function(d) { return {title: d}; });
     data = {arr: dtable_arr, col: dtable_col};
 
     $('#__uuid__ .table_date').text(ts.data.length+' business days from '+Highcharts.dateFormat('%d-%b-%y', extremes.min) + ' to ' + Highcharts.dateFormat('%d-%b-%y', extremes.max));
     
-    console.log('update_table_data');
+    console.log('update_table_data_2');
     return data;
 
 };

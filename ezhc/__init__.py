@@ -21,4 +21,4 @@ __all__ = ['Highcharts',
 load_js_libs()
 print 'Open console to check js libs were loaded in page'
 
-
+print 'test'

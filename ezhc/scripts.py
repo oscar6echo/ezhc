@@ -26,16 +26,23 @@ def load_script(filename, js=True):
 
 TOOLTIP_HEADER_FORMAT = '<b>{series.name}</b><br>'
 TOOLTIP_POINT_FORMAT_PERCENT = '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>'
-TOOLTIP_POINT_FORMAT_OTHER = '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>'
+TOOLTIP_POINT_FORMAT_BASIC = '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>'
 
 
-TOOLTIP_POSITIONER = load_script('tooltip_positioner.js')
+TOOLTIP_POSITIONER_CENTER_TOP = load_script('tooltip_positioner_center_top.js')
+TOOLTIP_POSITIONER_LEFT_TOP = load_script('tooltip_positioner_left_top.js')
+TOOLTIP_POSITIONER_RIGHT_TOP = load_script('tooltip_positioner_right_top.js')
+
 FORMATTER_PERCENT = load_script('formatter_percent.js')
-FORMATTER_OTHER = load_script('formatter_other.js')
+FORMATTER_BASIC = load_script('formatter_basic.js')
+FORMATTER_QUANTILE = load_script('formatter_quantile.js')
+
 
 JS_JSON_PARSE = load_script('json_parse.js')
 
-JS_FINANCIAL_TIME_SERIES_TABLE = load_script('financial_time_series_table.js')
+JS_FINANCIAL_TIME_SERIES_0 = load_script('financial_time_series_0.js')
+JS_FINANCIAL_TIME_SERIES_TABLE_1 = load_script('financial_time_series_table_1.js')
+JS_FINANCIAL_TIME_SERIES_TABLE_2 = load_script('financial_time_series_table_2.js')
 HTML_FINANCIAL_TIME_SERIES_TABLE = load_script('financial_time_series_table.html', js=False)
 JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS = load_script('financial_time_series_table_options.js')
 JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK = 'create_table__uuid__'
