@@ -8,7 +8,7 @@ from IPython.display import HTML
 
 from _config import JS_LIBS_ONE, JS_LIBS_TWO, JS_SAVE
 from scripts import JS_JSON_PARSE
-from img import embed_img
+from _img import embed_img
 
 
 
