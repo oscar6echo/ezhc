@@ -16,7 +16,8 @@ To install run from command line:
 pip install ezhc
 ```
 
-There is an exception to the transparent wrapping approach:  
-I added a datatable ([datatables.net](http://datatables.net/)) linked to the Highstock. It shows the performance / IRR / Volatility / Sharpe Ration / Max Drawdown over a modifiable time window (for financial data).  
-Note: Due to CSS collisions between the datatables lib and the jupyter notebook, there is a slight visual difference between the notebook embedded plot and the standalone saved html file.  
-See the example in the notebook.
+There are exceptions to the transparent wrapping approach:  
+I added 2 datatables ([datatables.net](http://datatables.net/)) linked to the Highstock call.  
+Note: Due to CSS collisions between the datatables lib and the jupyter notebook, there are slight visual differences between the notebook embedded plots and the standalone saved html files (the stand alone look better).
+A footer (described in HTML) can be added below a plot. If the footer contains an image, it will be burned into the standalone file upon save.  
+Cf. examples in the notebook.  

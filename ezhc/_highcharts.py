@@ -31,16 +31,16 @@ class Highcharts(Wrapper):
         self.plotOptions.treemap.animation = False
 
 
-    def plot(self, save=False, save_name=None, html_init=None,
+    def plot(self, dated=True, save=False, save_name=None, html_init=None,
              js_option_postprocess=None, js_extra=None, callback=None):
         opt = self.to_dict()
-        return plot(opt, lib='highcharts', save=save, save_name=save_name,
+        return plot(opt, lib='highcharts', dated=dated, save=save, save_name=save_name,
             html_init=html_init, js_option_postprocess=js_option_postprocess,
             js_extra=js_extra, callback=callback)
 
-    def html(self, save=False, save_name=None, html_init=None,
+    def html(self, dated=True, save=False, save_name=None, html_init=None,
              js_option_postprocess=None, js_extra=None, callback=None):
         opt = self.to_dict()
-        return html(opt, lib='highcharts', save=save, save_name=save_name,
+        return html(opt, lib='highcharts', dated=dated, save=save, save_name=save_name,
             html_init=html_init, js_option_postprocess=js_option_postprocess,
             js_extra=js_extra, callback=callback)

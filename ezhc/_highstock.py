@@ -30,27 +30,27 @@ class Highstock(Wrapper):
         self.plotOptions.column.animation = False
 
 
-    def html(self, save=False, save_name=None, html_init=None,
+    def html(self, dated=True, save=False, save_name=None, html_init=None,
              js_option_postprocess=None, js_extra=None, callback=None):
         opt = self.to_dict()
-        return html(opt, lib='highstock', save=save, save_name=save_name,
+        return html(opt, lib='highstock', dated=dated, save=save, save_name=save_name,
             html_init=html_init, js_option_postprocess=js_option_postprocess,
             js_extra=js_extra, callback=callback)
 
 
-    def plot(self, save=False, save_name=None, html_init=None,
-             js_option_postprocess=None, js_extra=None, callback=None):
+    def plot(self, dated=True, save=False, save_name=None, html_init=None,
+             js_option_postprocess=None, js_extra=None, callback=None, footer=None):
         """Only Highstock. No add-on."""
         opt = self.to_dict()
         js_extra = JS_FINANCIAL_TIME_SERIES_0
         callback = JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK
         
-        return plot(opt, lib='highstock', save=save, save_name=save_name,
+        return plot(opt, lib='highstock', dated=dated, save=save, save_name=save_name,
             html_init=html_init, js_option_postprocess=js_option_postprocess,
-            js_extra=js_extra, callback=callback)
+            js_extra=js_extra, callback=callback, footer=footer)
 
 
-    def plot_with_table_1(self, save=False, save_name=None):
+    def plot_with_table_1(self, dated=True, save=False, save_name=None, footer=None):
         """
         Table with Perf, IRR, Vol, Sharpe Ratio, Max Drawdown
         Sharpe ratio is based on time series 'Cash' meaning cash compounded
@@ -62,12 +62,12 @@ class Highstock(Wrapper):
         js_extra = JS_FINANCIAL_TIME_SERIES_TABLE_1
         callback = JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK
 
-        return plot(opt, lib='highstock', save=save, save_name=save_name,
+        return plot(opt, lib='highstock', dated=dated, save=save, save_name=save_name,
             html_init=html_init, js_option_postprocess=js_option_postprocess,
-            js_extra=js_extra, callback=callback)
+            js_extra=js_extra, callback=callback, footer=footer)
 
 
-    def plot_with_table_2(self, save=False, save_name=None):
+    def plot_with_table_2(self, dated=True, save=False, save_name=None, footer=None):
         """
         Table with Min, Max, Average, Max Drawdown
         """
@@ -77,7 +77,7 @@ class Highstock(Wrapper):
         js_extra = JS_FINANCIAL_TIME_SERIES_TABLE_2
         callback = JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK
 
-        return plot(opt, lib='highstock', save=save, save_name=save_name,
+        return plot(opt, lib='highstock', dated=dated, save=save, save_name=save_name,
             html_init=html_init, js_option_postprocess=js_option_postprocess,
-            js_extra=js_extra, callback=callback)
+            js_extra=js_extra, callback=callback, footer=footer)
 

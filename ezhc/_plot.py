@@ -8,12 +8,12 @@ from IPython.display import HTML
 
 from _config import JS_LIBS_ONE, JS_LIBS_TWO, JS_SAVE
 from scripts import JS_JSON_PARSE
+from img import embed_img
 
 
 
-
-def html(options, lib='hicharts', save=False, save_name=None,
-         html_init=None, js_option_postprocess=None, js_extra=None, callback=None):
+def html(options, lib='hicharts', dated=True, save=False, save_name=None,
+         html_init=None, js_option_postprocess=None, js_extra=None, callback=None, footer=None):
     """
     save=True will create a standalone HTML doc under localdir/saved (creating folfer save if necessary)
     """
@@ -28,13 +28,13 @@ def html(options, lib='hicharts', save=False, save_name=None,
     _options['chart']['renderTo'] = chart_id+'container_chart'
     json_options = json_dumps(_options).replace('__uuid__', chart_id)
 
+
     # HTML
-    if html_init:
-        html = html_init.replace('__uuid__', chart_id)
-    else:
-        html = """
-        <div id="__uuid__"><div id="__uuid__container_chart"></div></div>
-        """.replace('__uuid__', chart_id)
+    html_init = html_init if html_init else '<div id="__uuid__"><div id="__uuid__container_chart"></div></div>'
+    footer = footer if footer else ''
+    
+    html = html_init + footer
+    html = html.replace('__uuid__', chart_id)
 
 
     # JS
@@ -78,18 +78,23 @@ def html(options, lib='hicharts', save=False, save_name=None,
     });
     </script>""" % (JS_LIBS_ONE, JS_LIBS_TWO, js_option, js_extra, js_call, js_debug)
 
+
+
+    # embed img (paths or url)
+    contents = embed_img(html+js)
+
     # save
     if save==True:
         if not os.path.exists('saved'):
             os.makedirs('saved')
         tag = save_name if save_name else 'plot'
-        dated = dt.datetime.now().strftime('%Y%m%d_%H%M%S')
-        with open(os.path.join('saved', tag+'_'+dated+'.html'), 'w') as f:
+        dated = dt.datetime.now().strftime('_%Y%m%d_%H%M%S') if dated else ''
+        with open(os.path.join('saved', tag+dated+'.html'), 'w') as f:
             contents = """
             <script src="%s"></script>
             <script src="%s"></script>
             %s
-            """ % (JS_SAVE[0], JS_SAVE[1], html+js)
+            """ % (JS_SAVE[0], JS_SAVE[1], contents)
             f.write(contents)
 
     return html+js
@@ -98,9 +103,9 @@ def html(options, lib='hicharts', save=False, save_name=None,
 
 
 
-def plot(options, lib='hicharts', save=False, save_name=None,
-         html_init=None, js_option_postprocess=None, js_extra=None, callback=None):
-    contents = html(options, lib, save, save_name, html_init, js_option_postprocess, js_extra, callback)
+def plot(options, lib='hicharts', dated=True, save=False, save_name=None,
+         html_init=None, js_option_postprocess=None, js_extra=None, callback=None, footer=None):
+    contents = html(options, lib, dated, save, save_name, html_init, js_option_postprocess, js_extra, callback, footer)
     return HTML(contents)
 
 

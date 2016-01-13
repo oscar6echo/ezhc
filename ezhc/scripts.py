@@ -1,7 +1,15 @@
 
 import os
 import re
+from jinja2 import Environment
+
 from _config import SCRIPT_DIR
+
+
+def get_path(filename):
+    _dir = os.path.dirname(__file__)
+    path = os.path.join(_dir, SCRIPT_DIR, filename)
+    return path
 
 
 def remove_comments_js(string):
@@ -13,8 +21,7 @@ def remove_comments_js(string):
 
 
 def load_script(filename, js=True):
-    _dir = os.path.dirname(__file__)
-    path = os.path.join(_dir, SCRIPT_DIR, filename)
+    path = get_path(filename)
     with open(path) as f:
         contents = f.read()
         if js:
@@ -22,6 +29,9 @@ def load_script(filename, js=True):
         return contents#.replace('\n', '')
 
 
+def from_template(contents, **kwargs):
+    contents = Environment().from_string(contents).render(**kwargs)
+    return contents
 
 
 TOOLTIP_HEADER_FORMAT = '<b>{series.name}</b><br>'
@@ -47,3 +57,5 @@ HTML_FINANCIAL_TIME_SERIES_TABLE = load_script('financial_time_series_table.html
 JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS = load_script('financial_time_series_table_options.js')
 JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK = 'create_table__uuid__'
 
+TEMPLATE_DISCLAIMER = load_script('template_disclaimer.html', js=False)
+PATH_TO_LOGO = get_path('Jupyter_logo.png')
