@@ -92,7 +92,8 @@ function init_table(chart, data) {
         columns: data.col,
         // dom: "CTftip",
         dom: "tB",
-        "columnDefs": [
+        lengthMenu: [[-1], ["All"]],
+        columnDefs: [
             { "width": "40%", "targets": 0 },
             { "width": "13%", "targets": [1, 2, 3, 4] }
           ],

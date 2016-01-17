@@ -123,7 +123,8 @@ function init_table(chart, data) {
         columns: data.col,
         // dom: "CTftip",
         dom: "tB",
-        "columnDefs": [
+        lengthMenu: [[-1], ["All"]],
+        columnDefs: [
             { "width": "35%", "targets": 0 },
             { "width": "13%", "targets": [1, 2, 3, 4, 5] }
           ],
@@ -152,7 +153,7 @@ function update_table__uuid__() {
     dtable.clear();
     dtable.rows.add(data.arr);
     dtable.draw();
-    color_dtable_series_name(chart, dtablejq)
+    color_dtable_series_name(chart__uuid__, dtablejq)
 
     window.data = data;
     console.log('update_table');
