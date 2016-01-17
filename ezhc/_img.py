@@ -2,15 +2,7 @@
 import requests
 import base64
 
-from bs4 import BeautifulSoup
-
 requests.packages.urllib3.disable_warnings()
-
-
-def all_images(html):
-    soup = BeautifulSoup(html)
-    imgs = soup.find_all('img')
-    return list({t.attrs['src'] for t in imgs})
 
 
 def is_http_url(img_path):
@@ -40,21 +32,10 @@ def image_content(img_path):
     return image_base64(img_path)
 
 
-def replace_imgpath_by_content(html, image_path):
-    for path in image_path:
-        content = image_content(path)
-        if path.endswith(".svg"):
-            html = html.replace('<img alt="alt text" src="{}" />'.format(path),
-                                '{}'.format(content))
-        else:
-            html = html.replace('src="{}"'.format(path),
-                                'src="data:image/png;base64,{}"'.format(content))
-    return html
+def image_src(img_path):
+    content = image_content(img_path)
+    if img_path.endswith('.svg'):
+        return '{}'.format(content)
+    else:
+        return 'data:image/png;base64,{}'.format(content)
 
-
-def embed_img(html):
-    image_paths = all_images(html)
-    output = replace_imgpath_by_content(html, image_paths)
-    return output
-
-    

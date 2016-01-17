@@ -4,6 +4,7 @@ import re
 from jinja2 import Environment
 
 from _config import SCRIPT_DIR
+from _img import image_src
 
 
 def get_path(filename):
@@ -58,5 +59,6 @@ JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS = load_script('financial_time_series_tabl
 JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK = 'create_table__uuid__'
 
 TEMPLATE_DISCLAIMER = load_script('template_disclaimer.html', js=False)
-PATH_TO_LOGO_JUPYTER = get_path('Jupyter_logo.png')
-PATH_TO_LOGO_SG = get_path('SG_logo.png')
+
+PATH_TO_LOGO_JUPYTER = image_src(get_path('Jupyter_logo.png'))
+PATH_TO_LOGO_SG = image_src(get_path('SG_logo.png'))

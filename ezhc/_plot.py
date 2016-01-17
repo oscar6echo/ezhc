@@ -8,7 +8,6 @@ from IPython.display import HTML
 
 from _config import JS_LIBS_ONE, JS_LIBS_TWO, JS_SAVE
 from scripts import JS_JSON_PARSE
-from _img import embed_img
 
 
 
@@ -79,10 +78,6 @@ def html(options, lib='hicharts', dated=True, save=False, save_name=None,
     </script>""" % (JS_LIBS_ONE, JS_LIBS_TWO, js_option, js_extra, js_call, js_debug)
 
 
-
-    # embed img (paths or url)
-    contents = embed_img(html+js)
-
     # save
     if save==True:
         if not os.path.exists('saved'):
@@ -94,7 +89,7 @@ def html(options, lib='hicharts', dated=True, save=False, save_name=None,
             <script src="%s"></script>
             <script src="%s"></script>
             %s
-            """ % (JS_SAVE[0], JS_SAVE[1], contents)
+            """ % (JS_SAVE[0], JS_SAVE[1], html+js)
             f.write(contents)
 
     return html+js
