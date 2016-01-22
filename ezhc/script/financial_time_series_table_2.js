@@ -53,7 +53,7 @@ function get_max_drawdown(ts, nb_bd) {
     for (var i=nb_bd; i<ts.data.length; i++) {
         val = ts.data[i].v;
         ref_val = ts.data[i-nb_bd].v;
-        dd = Math.min(val/ref_val-1, dd);
+        dd = Math.min(val-ref_val, dd);
     }
     return dd;
 }
@@ -93,6 +93,7 @@ function init_table(chart, data) {
         // dom: "CTftip",
         dom: "tB",
         lengthMenu: [[-1], ["All"]],
+        order: [],
         columnDefs: [
             { "width": "40%", "targets": 0 },
             { "width": "13%", "targets": [1, 2, 3, 4] }
@@ -138,27 +139,24 @@ function update_table_data_2(chart) {
     window.extremes = extremes;
 
     for (var k=0; k<chart.series.length-1; k++) {
-        var name = chart.series[k].name;
-        console.log('name='+name);
+        var name = chart.series[k].name,
+            is_visible = chart.series[k].visible;
         
-        ts = get_timeseries(chart, k, extremes);
-        window.ts = ts;
-        window.ccc = chart;
-        min = get_min(ts);
-        console.log('min='+min);
-        max = get_max(ts);
-        console.log('max='+max);
-        avg = get_avg(ts);
-        console.log('avg='+avg);
-        nb_bdays = $("#__uuid__ .nb_bdays").val();
-        max_dd = get_max_drawdown(ts, nb_bdays);
-        
-        results.push({'name': name,
-                      'min': min,
-                      'max': max,
-                      'avg': avg,
-                      'max_dd': max_dd,
-                    })
+        if (is_visible) {
+            ts = get_timeseries(chart, k, extremes);
+            min = get_min(ts);
+            max = get_max(ts);
+            avg = get_avg(ts);
+            nb_bdays = $("#__uuid__ .nb_bdays").val();
+            max_dd = get_max_drawdown(ts, nb_bdays);
+            
+            results.push({'name': name,
+                          'min': min,
+                          'max': max,
+                          'avg': avg,
+                          'max_dd': max_dd,
+                        });
+        }
 
     }
 
@@ -166,7 +164,7 @@ function update_table_data_2(chart) {
                                                     fmt_nb_flo(d.min), 
                                                     fmt_nb_flo(d.max),
                                                     fmt_nb_flo(d.avg),
-                                                    fmt_nb_pct(d.max_dd)
+                                                    fmt_nb_flo(d.max_dd)
                                                     ]; });
     dtable_col = ['Series', 'Min', 'Max', 'Avg', 'Max Drawdown'].map(function(d) { return {title: d}; });
     data = {arr: dtable_arr, col: dtable_col};

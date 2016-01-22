@@ -123,6 +123,7 @@ function init_table(chart, data) {
         columns: data.col,
         // dom: "CTftip",
         dom: "tB",
+        order: [],        
         lengthMenu: [[-1], ["All"]],
         columnDefs: [
             { "width": "35%", "targets": 0 },
@@ -178,9 +179,10 @@ function update_table_data_1(chart) {
     }
 
     for (var k=0; k<chart.series.length-1; k++) {
-        var name = chart.series[k].name;
+        var name = chart.series[k].name,
+            is_visible = chart.series[k].visible;
 
-        if (name!="Cash") {
+        if ((name!="Cash") & (is_visible)) {
             ts = get_timeseries(chart, k, extremes);
             perf = get_perf(ts);
             irr = get_irr(ts);
