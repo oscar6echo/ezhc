@@ -9,17 +9,20 @@ var fmt_nb_flo = function(d) { if (isNumber(d)) { var f = d3.format("+,.2f"); re
                              }
 
 
-function get_timeseries(chart, n, extremes) {
-    // series.points is the points actually displayed, while series.data is the original full data
-    var data = chart.series[n].points,
-        name = chart.series[n].name,
+function get_timeseries__uuid__(n, extremes) {
+    
+    var opt = opt__uuid__,
+        data = opt.series[n].data,
+        name = opt.series[n].name,
+        mint = extremes.min,
+        maxt = extremes.max,
         ts = { 'name':name, 'data': [] };
         
     for (var i=0; i<data.length; i++) {
-        // if (data[i] && data[i].x>=extremes.min && data[i].x<=extremes.max)  {
-        //     ts.data.push({t: data[i].x, v: data[i].y})
-        // }
-        ts.data.push({t: data[i].x, v: data[i].y})
+        var t = data[i][0];
+        if (t>=mint & t<=maxt) {        
+            ts.data.push({t: t, v: data[i][1]})
+        }
     }
     return ts;
 }
@@ -143,7 +146,7 @@ function update_table_data_2(chart) {
             is_visible = chart.series[k].visible;
         
         if (is_visible) {
-            ts = get_timeseries(chart, k, extremes);
+            ts = get_timeseries__uuid__(k, extremes);
             min = get_min(ts);
             max = get_max(ts);
             avg = get_avg(ts);

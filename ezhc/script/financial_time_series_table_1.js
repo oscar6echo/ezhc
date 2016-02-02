@@ -9,7 +9,7 @@ var fmt_nb_flo = function(d) { if (isNumber(d)) { var f = d3.format("+,.2f"); re
                              }
 
 
-function cash_idx_in_series() {
+function cash_idx_in_series__uuid__() {
     var t = -1;
     for (var i=1; i<opt.series.length; i++) {
         if (opt.series[i].name=="Cash") {
@@ -21,14 +21,19 @@ function cash_idx_in_series() {
 }
 
 
-function get_timeseries(chart, n, extremes) {
-    var data = chart.series[n].points,
-        name = chart.series[n].name,
+function get_timeseries__uuid__(n, extremes) {
+    
+    var opt = opt__uuid__,
+        data = opt.series[n].data,
+        name = opt.series[n].name,
+        mint = extremes.min,
+        maxt = extremes.max,
         ts = { 'name':name, 'data': [] };
         
     for (var i=0; i<data.length; i++) {
-        if (data[i] && data[i].x>=extremes.min && data[i].x<=extremes.max)  {
-            ts.data.push({t: data[i].x, v: data[i].y})
+        var t = data[i][0];
+        if (t>=mint & t<=maxt) {        
+            ts.data.push({t: t, v: data[i][1]})
         }
     }
     return ts;
@@ -169,9 +174,9 @@ function update_table_data_1(chart) {
 
     window.extremes = extremes;
 
-    var c = cash_idx_in_series();
+    var c = cash_idx_in_series__uuid__();
     if (c>0) {
-        cash_ts = get_timeseries(chart, c, extremes);
+        cash_ts = get_timeseries__uuid__(c, extremes);
         irr_cash = get_irr(cash_ts);
     }
     else {
@@ -183,7 +188,7 @@ function update_table_data_1(chart) {
             is_visible = chart.series[k].visible;
 
         if ((name!="Cash") & (is_visible)) {
-            ts = get_timeseries(chart, k, extremes);
+            ts = get_timeseries__uuid__(k, extremes);
             perf = get_perf(ts);
             irr = get_irr(ts);
             vol = get_vol(ts);

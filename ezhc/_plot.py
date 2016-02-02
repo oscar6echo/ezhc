@@ -45,9 +45,11 @@ def html(options, lib='hicharts', dated=True, save=False, save_name=None,
     var options = %s;
     %s
     %s
-    window.opt = $.extend(true, {}, options);
+    window.opt__uuid__ = $.extend(true, {}, options);
+    window.opt = window.opt__uuid__;
+
     console.log('Highcharts/Highstock options accessible as opt');
-    """ % (json_options, JS_JSON_PARSE, js_option_postprocess)
+    """.replace('__uuid__', chart_id) % (json_options, JS_JSON_PARSE, js_option_postprocess)
 
 
     if lib=='highcharts':
