@@ -18,6 +18,5 @@ pip install ezhc
 
 There are exceptions to the transparent wrapping approach:  
 I added 2 datatables ([datatables.net](http://datatables.net/)) linked to the Highstock call.  
-Note: Due to CSS collisions between the datatables lib and the jupyter notebook, there are slight visual differences between the notebook embedded plots and the standalone saved html files (the stand alone look better).
 A footer (described in HTML) can be added below a plot. If the footer contains an image, it will be burned into the standalone file upon save.  
 Cf. examples in the notebook.  
