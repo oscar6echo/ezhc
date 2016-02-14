@@ -9,8 +9,10 @@ var fmt_nb_flo = function(d) { if (isNumber(d)) { var f = d3.format("+,.2f"); re
                              }
 
 
-function cash_idx_in_series__uuid__() {
-    var t = -1;
+function cash_idx_in_series(uuid) {
+    var t = -1,
+        opt = window.opts[uuid];
+
     for (var i=1; i<opt.series.length; i++) {
         if (opt.series[i].name=="Cash") {
             t = i;
@@ -21,9 +23,8 @@ function cash_idx_in_series__uuid__() {
 }
 
 
-function get_timeseries__uuid__(n, extremes) {
-    
-    var opt = opt__uuid__,
+function get_timeseries(uuid, n, extremes) {
+    var opt = window.opts[uuid],
         data = opt.series[n].data,
         name = opt.series[n].name,
         mint = extremes.min,
@@ -41,7 +42,6 @@ function get_timeseries__uuid__(n, extremes) {
 
 
 function get_perf(ts) {
-    window.ts = ts;
     var n = ts.data.length,
         first_val = ts.data[0].v,
         last_val = ts.data[n-1].v;
@@ -84,7 +84,6 @@ function get_vol(ts) {
 function get_max_drawdown(ts, nb_bd) {
     var dd = Number.POSITIVE_INFINITY,
         val, ref_val;
-    window.ts = ts;
 
     for (var i=nb_bd; i<ts.data.length; i++) {
         val = ts.data[i].v;
@@ -95,35 +94,38 @@ function get_max_drawdown(ts, nb_bd) {
 }
 
 
-function create_table__uuid__(chart) {
+function create_table_1(uuid, chart) {
+    if (typeof window.charts == "undefined") {
+        window.charts = {};
+    }
+    window.charts[uuid] = chart;
 
-    $('#__uuid__ .nb_bdays').val(20)
-    $('#__uuid__ .slider').val(20)
+    $('#'+uuid+' .nb_bdays').val(20)
+    $('#'+uuid+' .slider').val(20)
 
-    $('#__uuid__ .slider').on('input', function(){
-        $('#__uuid__ .nb_bdays').val($(this).val());
-        update_table__uuid__();
+    $('#'+uuid+' .slider').on('input', function(){
+        $('#'+uuid+' .nb_bdays').val($(this).val());
+        update_table_1(uuid);
     });
 
-    $('#__uuid__ .nb_bdays').on('input', function(){
-        $('#__uuid__ .slider').val($(this).val());
-        update_table__uuid__();
+    $('#'+uuid+' .nb_bdays').on('input', function(){
+        $('#'+uuid+' .slider').val($(this).val());
+        update_table_1(uuid);
     });
 
-    $('#__uuid__ .container_table').html('<table class="dtable display compact" cellspacing="0" style="width: 75%"></table>' );
+    $('#'+uuid+' .container_table').html('<table class="dtable display compact" cellspacing="0" style="width: 75%"></table>' );
 
-    var data = update_table_data_1(chart);
-    var dtable = init_table(chart, data);
-    
-    window.chart__uuid__ = chart;
+    var data = update_table_data_1(uuid, chart);
+    var dtable = init_table_1(uuid, chart, data);
+
     window.data = data;
     window.dtable = dtable;
-    console.log('create_table');
+    console.log('create_table_1 '+uuid);
 }
 
 
-function init_table(chart, data) {
-    var dtable = $('#__uuid__ .dtable').DataTable( {
+function init_table_1(uuid, chart, data) {
+    var dtable = $('#'+uuid+' .dtable').DataTable( {
         data: data.arr,
         columns: data.col,
         // dom: "CTftip",
@@ -135,48 +137,49 @@ function init_table(chart, data) {
             { "width": "13%", "targets": [1, 2, 3, 4, 5] }
           ],
     } );
-    var dtablejq = $('#__uuid__ .dtable').dataTable();
-    color_dtable_series_name(chart, dtablejq);
+    var dtablejq = $('#'+uuid+' .dtable').dataTable();
+    color_dtable_series_name_1(uuid, chart, dtablejq);
 
     window.dtable = dtable;
     window.dtablejq = dtablejq;
 
-    console.log('init_table');
+    console.log('init_table_1 '+uuid);
     return dtable;
 }
 
 
-function color_dtable_series_name(chart, dtablejq) {
-    var color_series = chart.series.map(function(d) { return d.color; });
-    $('#__uuid__ td:first-child').each(function(i, d) { $(this).css('color', color_series[i]); })
+function color_dtable_series_name_1(uuid, chart, dtablejq) {
+    window.toto = chart;
 
+    var color_series = chart.series.map(function(d) { return d.color; });
+    $('#'+uuid+' td:first-child').each(function(i, d) { $(this).css('color', color_series[i]); })
 }
 
 
-function update_table__uuid__() {
-    var data = update_table_data_1(chart__uuid__);
-    var dtable = $('#__uuid__ .dtable').DataTable()
+function update_table_1(uuid) {
+    var chart = window.charts[uuid],
+        data = update_table_data_1(uuid, chart),
+        dtable = $('#'+uuid+' .dtable').DataTable()
     dtable.clear();
     dtable.rows.add(data.arr);
     dtable.draw();
-    color_dtable_series_name(chart__uuid__, dtablejq)
+    color_dtable_series_name_1(uuid, chart, dtablejq)
 
     window.data = data;
-    console.log('update_table');
+    console.log('update_table_1 '+uuid);
 }
 
 
-function update_table_data_1(chart) {
-     
+function update_table_data_1(uuid, chart) {
     var extremes = chart.xAxis[0].getExtremes(),
         results = [],
         ts, perf, irr, vol, irr_cash, sharpe, max_dd;
 
     window.extremes = extremes;
 
-    var c = cash_idx_in_series__uuid__();
+    var c = cash_idx_in_series(uuid);
     if (c>0) {
-        cash_ts = get_timeseries__uuid__(c, extremes);
+        cash_ts = get_timeseries(uuid, c, extremes);
         irr_cash = get_irr(cash_ts);
     }
     else {
@@ -188,12 +191,12 @@ function update_table_data_1(chart) {
             is_visible = chart.series[k].visible;
 
         if ((name!="Cash") & (is_visible)) {
-            ts = get_timeseries__uuid__(k, extremes);
+            ts = get_timeseries(uuid, k, extremes);
             perf = get_perf(ts);
             irr = get_irr(ts);
             vol = get_vol(ts);
             sharpe = (irr-irr_cash)/vol;
-            nb_bdays = $("#__uuid__ .nb_bdays").val();
+            nb_bdays = $('#'+uuid+' .nb_bdays').val();
             max_dd = get_max_drawdown(ts, nb_bdays);
             
             results.push({'name': name,
@@ -207,7 +210,7 @@ function update_table_data_1(chart) {
 
     }
 
-    dtable_arr = results.map(function(d) { return [  d.name,
+    dtable_arr = results.map(function(d) { return [ d.name,
                                                     fmt_nb_pct(d.perf), 
                                                     fmt_nb_pct(d.irr),
                                                     fmt_nb_pct(d.vol),
@@ -217,9 +220,9 @@ function update_table_data_1(chart) {
     dtable_col = ['Series', 'Perf', 'IRR', 'Vol', 'Sharpe', 'Max Drawdown'].map(function(d) { return {title: d}; });
     data = {arr: dtable_arr, col: dtable_col};
 
-    $('#__uuid__ .table_date').text(ts.data.length+' business days from '+Highcharts.dateFormat('%d-%b-%y', extremes.min) + ' to ' + Highcharts.dateFormat('%d-%b-%y', extremes.max));
+    $('#'+uuid+' .table_date').text(ts.data.length+' business days from '+Highcharts.dateFormat('%d-%b-%y', extremes.min) + ' to ' + Highcharts.dateFormat('%d-%b-%y', extremes.max));
     
-    console.log('update_table_data_1');
+    console.log('update_table_data_1 '+uuid);
     return data;
 
 };

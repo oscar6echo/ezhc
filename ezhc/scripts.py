@@ -55,8 +55,11 @@ JS_FINANCIAL_TIME_SERIES_0 = load_script('financial_time_series_0.js')
 JS_FINANCIAL_TIME_SERIES_TABLE_1 = load_script('financial_time_series_table_1.js')
 JS_FINANCIAL_TIME_SERIES_TABLE_2 = load_script('financial_time_series_table_2.js')
 HTML_FINANCIAL_TIME_SERIES_TABLE = load_script('financial_time_series_table.html', js=False)
-JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS = load_script('financial_time_series_table_options.js')
-JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK = 'create_table__uuid__'
+JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS_1 = load_script('financial_time_series_table_options_1.js')
+JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS_2 = load_script('financial_time_series_table_options_2.js')
+JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK_0 = 'function(chart) { create_table_0("__uuid__", chart); }'
+JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK_1 = 'function(chart) { console.log("callback_1 beg "+"__uuid__"); create_table_1("__uuid__", chart); }'
+JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK_2 = 'function(chart) { create_table_2("__uuid__", chart); }'
 
 TEMPLATE_DISCLAIMER = load_script('template_disclaimer.html', js=False)
 

@@ -9,9 +9,8 @@ var fmt_nb_flo = function(d) { if (isNumber(d)) { var f = d3.format("+,.2f"); re
                              }
 
 
-function get_timeseries__uuid__(n, extremes) {
-    
-    var opt = opt__uuid__,
+function get_timeseries(uuid, n, extremes) {
+    var opt = window.opts[uuid],
         data = opt.series[n].data,
         name = opt.series[n].name,
         mint = extremes.min,
@@ -41,7 +40,6 @@ function get_max(ts) {
 
 
 function get_avg(ts) {
-    window.ttt = ts;
     var arr = ts.data.map(function(d){ return d.v; });
     var s = arr.reduce(function(a, b){ return a+b; });
     return s/arr.length;
@@ -51,7 +49,6 @@ function get_avg(ts) {
 function get_max_drawdown(ts, nb_bd) {
     var dd = Number.POSITIVE_INFINITY,
         val, ref_val;
-    window.ts = ts;
 
     for (var i=nb_bd; i<ts.data.length; i++) {
         val = ts.data[i].v;
@@ -62,35 +59,38 @@ function get_max_drawdown(ts, nb_bd) {
 }
 
 
-function create_table__uuid__(chart) {
+function create_table_2(uuid, chart) {
+    if (typeof window.charts == "undefined") {
+        window.charts = {};
+    }
+    window.charts[uuid] = chart;
 
-    $('#__uuid__ .nb_bdays').val(20)
-    $('#__uuid__ .slider').val(20)
+    $('#'+uuid+' .nb_bdays').val(20)
+    $('#'+uuid+' .slider').val(20)
 
-    $('#__uuid__ .slider').on('input', function(){
-        $('#__uuid__ .nb_bdays').val($(this).val());
-        update_table__uuid__();
+    $('#'+uuid+' .slider').on('input', function(){
+        $('#'+uuid+' .nb_bdays').val($(this).val());
+        update_table_2(uuid);
     });
 
-    $('#__uuid__ .nb_bdays').on('input', function(){
-        $('#__uuid__ .slider').val($(this).val());
-        update_table__uuid__();
+    $('#'+uuid+' .nb_bdays').on('input', function(){
+        $('#'+uuid+' .slider').val($(this).val());
+        update_table_2(uuid);
     });
 
-    $('#__uuid__ .container_table').html('<table class="dtable display compact" cellspacing="0" style="width: 75%"></table>' );
+    $('#'+uuid+' .container_table').html('<table class="dtable display compact" cellspacing="0" style="width: 75%"></table>' );
 
-    var data = update_table_data_2(chart);
-    var dtable = init_table(chart, data);
+    var data = update_table_data_2(uuid, chart);
+    var dtable = init_table_2(uuid, chart, data);
     
-    window.chart__uuid__ = chart;
     window.data = data;
     window.dtable = dtable;
-    console.log('create_table');
+    console.log('create_table_2 '+uuid);
 }
 
 
-function init_table(chart, data) {
-    var dtable = $('#__uuid__ .dtable').DataTable( {
+function init_table_2(uuid, chart, data) {
+    var dtable = $('#'+uuid+' .dtable').DataTable( {
         data: data.arr,
         columns: data.col,
         // dom: "CTftip",
@@ -102,39 +102,38 @@ function init_table(chart, data) {
             { "width": "13%", "targets": [1, 2, 3, 4] }
           ],
     } );
-    var dtablejq = $('#__uuid__ .dtable').dataTable();
-    color_dtable_series_name(chart, dtablejq);
+    var dtablejq = $('#'+uuid+' .dtable').dataTable();
+    color_dtable_series_name_2(uuid, chart, dtablejq);
 
     window.dtable = dtable;
     window.dtablejq = dtablejq;
 
-    console.log('init_table');
+    console.log('init_table_2 '+uuid);
     return dtable;
 }
 
 
-function color_dtable_series_name(chart, dtablejq) {
+function color_dtable_series_name_2(uuid, chart, dtablejq) {
     var color_series = chart.series.map(function(d) { return d.color; });
-    $('#__uuid__ td:first-child').each(function(i, d) { $(this).css('color', color_series[i]); })
-
+    $('#'+uuid+' td:first-child').each(function(i, d) { $(this).css('color', color_series[i]); })
 }
 
 
-function update_table__uuid__() {
-    var data = update_table_data_2(chart__uuid__);
-    var dtable = $('#__uuid__ .dtable').DataTable()
+function update_table_2(uuid) {
+    var chart = window.charts[uuid],
+        data = update_table_data_2(uuid, chart),
+        dtable = $('#'+uuid+' .dtable').DataTable()
     dtable.clear();
     dtable.rows.add(data.arr);
     dtable.draw();
-    color_dtable_series_name(chart__uuid__, dtablejq)
+    color_dtable_series_name_2(uuid, chart, dtablejq)
 
     window.data = data;
-    console.log('update_table');
+    console.log('update_table_2 '+uuid);
 }
 
 
-function update_table_data_2(chart) {
-     
+function update_table_data_2(uuid, chart) {     
     var extremes = chart.xAxis[0].getExtremes(),
         results = [],
         ts, min, max, avf, max_dd;
@@ -146,11 +145,11 @@ function update_table_data_2(chart) {
             is_visible = chart.series[k].visible;
         
         if (is_visible) {
-            ts = get_timeseries__uuid__(k, extremes);
+            ts = get_timeseries(uuid, k, extremes);
             min = get_min(ts);
             max = get_max(ts);
             avg = get_avg(ts);
-            nb_bdays = $("#__uuid__ .nb_bdays").val();
+            nb_bdays = $('#'+uuid+' .nb_bdays').val();
             max_dd = get_max_drawdown(ts, nb_bdays);
             
             results.push({'name': name,
@@ -163,7 +162,7 @@ function update_table_data_2(chart) {
 
     }
 
-    dtable_arr = results.map(function(d) { return [  d.name,
+    dtable_arr = results.map(function(d) { return [ d.name,
                                                     fmt_nb_flo(d.min), 
                                                     fmt_nb_flo(d.max),
                                                     fmt_nb_flo(d.avg),
@@ -172,9 +171,9 @@ function update_table_data_2(chart) {
     dtable_col = ['Series', 'Min', 'Max', 'Avg', 'Max Drawdown'].map(function(d) { return {title: d}; });
     data = {arr: dtable_arr, col: dtable_col};
 
-    $('#__uuid__ .table_date').text(ts.data.length+' business days from '+Highcharts.dateFormat('%d-%b-%y', extremes.min) + ' to ' + Highcharts.dateFormat('%d-%b-%y', extremes.max));
+    $('#'+uuid+' .table_date').text(ts.data.length+' business days from '+Highcharts.dateFormat('%d-%b-%y', extremes.min) + ' to ' + Highcharts.dateFormat('%d-%b-%y', extremes.max));
     
-    console.log('update_table_data_2');
+    console.log('update_table_data_2 '+uuid);
     return data;
 
 };

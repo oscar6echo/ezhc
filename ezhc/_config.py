@@ -1,8 +1,12 @@
 
 import json
-from IPython.display import HTML, display
+from IPython.display import display, HTML, Javascript
 
 
+JS_SAVE = [
+    'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.17/require.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js',
+]
 
 JS_LIBS_ONE = json.dumps([
     'jquery',
@@ -26,7 +30,8 @@ JS_LIBS_TWO = json.dumps([
 JS_LIBS_TWO_sep = ';'.join(map(lambda x: 'console.log("'+x+'")', json.loads(JS_LIBS_TWO)))+';'
 
 
-JS_LOAD = """<script>
+
+JS_LOAD = """
 require(%s, function() {
     require(%s, function() {
         console.log("The following js libs loaded:");
@@ -35,18 +40,12 @@ require(%s, function() {
         console.log("Then:");
         %s
     });
-});
-</script>""" % (JS_LIBS_ONE, JS_LIBS_TWO, JS_LIBS_ONE_sep, JS_LIBS_TWO_sep)
+});""" % (JS_LIBS_ONE, JS_LIBS_TWO, JS_LIBS_ONE_sep, JS_LIBS_TWO_sep)
 
 
 def load_js_libs():
-	display(HTML(JS_LOAD))
+	display(Javascript(JS_LOAD))
 
-
-JS_SAVE = [
-    'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.17/require.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js',
-]
 
 
 API_DIR = 'api'

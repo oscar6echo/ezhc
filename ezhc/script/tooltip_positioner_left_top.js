@@ -2,7 +2,8 @@
 
 function (labelWidth, labelHeight, point) {
     var roundUp100 = function(d) { return 100*Math.floor(d/100); },
-        labelWidth = roundUp100(labelWidth);
+        labelWidth = roundUp100(labelWidth),
+        chart = window.charts['__uuid__'];
 
     var tooltipX, tooltipY;
     // test X: point.plotX in left

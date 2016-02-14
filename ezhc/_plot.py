@@ -38,17 +38,21 @@ def html(options, lib='hicharts', dated=True, save=False, save_name=None,
 
     # JS
     js_option_postprocess = js_option_postprocess.replace('__uuid__', chart_id) if js_option_postprocess else ''
-    js_extra = js_extra.replace('__uuid__', chart_id) if js_extra else ''
+    js_extra = js_extra if js_extra else ''
     callback = ', '+callback.replace('__uuid__', chart_id) if callback else ''
 
     js_option = """
     var options = %s;
     %s
     %s
-    window.opt__uuid__ = $.extend(true, {}, options);
-    window.opt = window.opt__uuid__;
-
-    console.log('Highcharts/Highstock options accessible as opt');
+        
+    var opt = $.extend(true, {}, options);
+    if (window.opts==undefined) {
+        window.opts = {};
+    }
+    window.opts['__uuid__'] = opt;
+    
+    console.log('Highcharts/Highstock options accessible as opts["__uuid__"]');
     """.replace('__uuid__', chart_id) % (json_options, JS_JSON_PARSE, js_option_postprocess)
 
 
@@ -58,17 +62,17 @@ def html(options, lib='hicharts', dated=True, save=False, save_name=None,
         js_call = 'window.chart = new Highcharts.StockChart(options%s);' % (callback)
 
     js_debug = """
-    console.log('Highcharts/Highstock chart accessible as chart');
-    """
+    console.log('Highcharts/Highstock chart accessible as charts["__uuid__"]');
+    """.replace('__uuid__', chart_id)
 
     js = """<script>
-    // nbconvert loads jquery.min.js  and require.js and at the top of the .ipnb
+    // the Jupyter notebook loads jquery.min.js  and require.js and at the top of the page
     // then to make jquery available inside a require module
     // the trick is http://www.manuel-strehl.de/dev/load_jquery_before_requirejs.en.html
     define('jquery', [], function() {
-    return jQuery;
+        return jQuery;
     });
-
+            
     require(%s, function() {
         require(%s, function() {
             %s
@@ -79,7 +83,6 @@ def html(options, lib='hicharts', dated=True, save=False, save_name=None,
     });
     </script>""" % (JS_LIBS_ONE, JS_LIBS_TWO, js_option, js_extra, js_call, js_debug)
 
-
     # save
     if save==True:
         if not os.path.exists('saved'):
@@ -87,11 +90,8 @@ def html(options, lib='hicharts', dated=True, save=False, save_name=None,
         tag = save_name if save_name else 'plot'
         dated = dt.datetime.now().strftime('_%Y%m%d_%H%M%S') if dated else ''
         with open(os.path.join('saved', tag+dated+'.html'), 'w') as f:
-            contents = """
-            <script src="%s"></script>
-            <script src="%s"></script>
-            %s
-            """ % (JS_SAVE[0], JS_SAVE[1], html+js)
+            js_load = ''.join(['<script src="%s"></script>' % e for e in JS_SAVE])
+            contents = js_load+html+js
             f.write(contents)
 
     return html+js
@@ -104,6 +104,3 @@ def plot(options, lib='hicharts', dated=True, save=False, save_name=None,
          html_init=None, js_option_postprocess=None, js_extra=None, callback=None, footer=None):
     contents = html(options, lib, dated, save, save_name, html_init, js_option_postprocess, js_extra, callback, footer)
     return HTML(contents)
-
-
-

@@ -4,9 +4,12 @@ from _plot import plot, html
 from scripts import JS_FINANCIAL_TIME_SERIES_0, \
                     JS_FINANCIAL_TIME_SERIES_TABLE_1, \
                     JS_FINANCIAL_TIME_SERIES_TABLE_2, \
-                    JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS, \
+                    JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS_1, \
+                    JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS_2, \
                     HTML_FINANCIAL_TIME_SERIES_TABLE, \
-                    JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK
+                    JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK_0, \
+                    JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK_1, \
+                    JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK_2
 
 
 class Highstock(Wrapper):
@@ -43,7 +46,7 @@ class Highstock(Wrapper):
         """Only Highstock. No add-on."""
         opt = self.to_dict()
         js_extra = JS_FINANCIAL_TIME_SERIES_0
-        callback = JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK
+        callback = JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK_0
         
         return plot(opt, lib='highstock', dated=dated, save=save, save_name=save_name,
             html_init=html_init, js_option_postprocess=js_option_postprocess,
@@ -58,9 +61,9 @@ class Highstock(Wrapper):
         """
         opt = self.to_dict()
         html_init = HTML_FINANCIAL_TIME_SERIES_TABLE
-        js_option_postprocess = JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS
+        js_option_postprocess = JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS_1
         js_extra = JS_FINANCIAL_TIME_SERIES_TABLE_1
-        callback = JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK
+        callback = JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK_1
 
         return plot(opt, lib='highstock', dated=dated, save=save, save_name=save_name,
             html_init=html_init, js_option_postprocess=js_option_postprocess,
@@ -73,9 +76,9 @@ class Highstock(Wrapper):
         """
         opt = self.to_dict()
         html_init = HTML_FINANCIAL_TIME_SERIES_TABLE
-        js_option_postprocess = JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS
+        js_option_postprocess = JS_FINANCIAL_TIME_SERIES_TABLE_OPTIONS_2
         js_extra = JS_FINANCIAL_TIME_SERIES_TABLE_2
-        callback = JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK
+        callback = JS_FINANCIAL_TIME_SERIES_TABLE_CALLBACK_2
 
         return plot(opt, lib='highstock', dated=dated, save=save, save_name=save_name,
             html_init=html_init, js_option_postprocess=js_option_postprocess,
