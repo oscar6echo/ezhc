@@ -44,7 +44,7 @@ require(%s, function() {
 
 
 def load_js_libs():
-	display(Javascript(JS_LOAD))
+    display(Javascript(JS_LOAD))
 
 
 

@@ -10,9 +10,10 @@ def is_http_url(img_path):
     return (img_path.startswith("http://") or
             img_path.startswith("https://"))
 
+
 def image_base64(imgpath):
     with open(imgpath, 'rb') as obj:
-        return base64.b64encode(obj.read())
+        return base64.b64encode(obj.read()).decode('utf-8')
 
 
 def image_content(img_path):
@@ -26,7 +27,7 @@ def image_content(img_path):
         content = requests.get(img_path, verify=False).content
         if img_path.endswith(".svg"):
             return content
-        return base64.b64encode(content)
+        return base64.b64encode(content).decode('utf-8')
     if img_path.endswith(".svg"):
         return open(img_path).read()
     return image_base64(img_path)
@@ -38,4 +39,3 @@ def image_src(img_path):
         return '{}'.format(content)
     else:
         return 'data:image/png;base64,{}'.format(content)
-

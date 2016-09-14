@@ -1,7 +1,7 @@
 
 import os
 import json
-from _config import HC_OPTION_FILE, HC_OBJECT_FILE, \
+from ._config import HC_OPTION_FILE, HC_OBJECT_FILE, \
                     HS_OPTION_FILE, HS_OBJECT_FILE, \
                     API_DIR
 
@@ -20,15 +20,14 @@ class State(object):
     """
 
     def __init__(self, lib='highcharts'):
-        if lib=='highcharts':
+        if lib == 'highcharts':
             self._OBJECT = load_resource(HC_OBJECT_FILE)
             self._OPTION = load_resource(HC_OPTION_FILE)
-        elif lib=='highstock':        
+        elif lib == 'highstock':
             self._OBJECT = load_resource(HS_OBJECT_FILE)
             self._OPTION = load_resource(HS_OPTION_FILE)
         else:
             raise ValueError("Wrong lib, 'highcharts' or 'highstock' expected")
 
 state_HC = State(lib='highcharts')
-state_HS= State(lib='highstock')
-
+state_HS = State(lib='highstock')

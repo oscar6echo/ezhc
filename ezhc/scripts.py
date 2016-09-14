@@ -3,8 +3,8 @@ import os
 import re
 from jinja2 import Environment
 
-from _config import SCRIPT_DIR
-from _img import image_src
+from ._config import SCRIPT_DIR
+from ._img import image_src
 
 
 def get_path(filename):
@@ -15,10 +15,10 @@ def get_path(filename):
 
 def remove_comments_js(string):
     # remove all streamed comments (/*COMMENT */) from string
-    string = re.sub(re.compile("/\*.*?\*/",re.DOTALL ) ,"" ,string) 
+    string = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", string)
     # remove all singleline comments (//COMMENT\n ) from string
-    string = re.sub(re.compile("//.*?\n" ) ,"" ,string) 
-    return string   
+    string = re.sub(re.compile("//.*?\n"), "", string)
+    return string
 
 
 def load_script(filename, js=True):
@@ -27,7 +27,7 @@ def load_script(filename, js=True):
         contents = f.read()
         if js:
             contents = remove_comments_js(contents)
-        return contents#.replace('\n', '')
+        return contents  # .replace('\n', '')
 
 
 def from_template(contents, **kwargs):

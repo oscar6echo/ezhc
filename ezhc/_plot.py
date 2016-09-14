@@ -6,8 +6,8 @@ import uuid
 from IPython.display import HTML
 
 
-from _config import JS_LIBS_ONE, JS_LIBS_TWO, JS_SAVE
-from scripts import JS_JSON_PARSE
+from ._config import JS_LIBS_ONE, JS_LIBS_TWO, JS_SAVE
+from .scripts import JS_JSON_PARSE
 
 
 
@@ -31,7 +31,7 @@ def html(options, lib='hicharts', dated=True, save=False, save_name=None,
     # HTML
     html_init = html_init if html_init else '<div id="__uuid__"><div id="__uuid__container_chart"></div></div>'
     footer = footer if footer else ''
-    
+
     html = html_init + footer
     html = html.replace('__uuid__', chart_id)
 
@@ -45,13 +45,13 @@ def html(options, lib='hicharts', dated=True, save=False, save_name=None,
     var options = %s;
     %s
     %s
-        
+
     var opt = $.extend(true, {}, options);
     if (window.opts==undefined) {
         window.opts = {};
     }
     window.opts['__uuid__'] = opt;
-    
+
     console.log('Highcharts/Highstock options accessible as opts["__uuid__"]');
     """.replace('__uuid__', chart_id) % (json_options, JS_JSON_PARSE, js_option_postprocess)
 
@@ -72,7 +72,7 @@ def html(options, lib='hicharts', dated=True, save=False, save_name=None,
     define('jquery', [], function() {
         return jQuery;
     });
-            
+
     require(%s, function() {
         require(%s, function() {
             %s

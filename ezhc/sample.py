@@ -3,7 +3,7 @@ import os
 import numpy as np
 import pandas as pd
 
-from _config import SAMPLES_DIR, DF_ONE_IDX_SEVERAL_COL, DF_ONE_IDX_SEVERAL_COL_2, \
+from ._config import SAMPLES_DIR, DF_ONE_IDX_SEVERAL_COL, DF_ONE_IDX_SEVERAL_COL_2, \
                     DF_ONE_IDX_ONE_COL, DF_ONE_IDX_TWO_COL, DF_TWO_IDX_ONE_COL, DF_SCATTER, \
                     DF_BUBBLE, DF_HEATMAP, DF_SEVERAL_IDX_ONE_COL
 
@@ -15,10 +15,9 @@ def load_df(src):
     return df
 
 
-
 def df_timeseries(N=3, Nb_bd=500, seed=123456):
     np.random.seed(seed)
-    
+
     rate = 0.02
     vol = 0.25
     dt = 1.0/260
@@ -28,18 +27,18 @@ def df_timeseries(N=3, Nb_bd=500, seed=123456):
         ln_returns = (rate-vol**2/2)*dt+vol*np.sqrt(dt)*np.random.normal(size=Nb_bd)
         ln_returns[0] = 0.0
         tracks[:, k] = np.exp(ln_returns).cumprod()
-        
+
     dates = pd.date_range(start=pd.datetime(2015, 1, 1), periods=Nb_bd, freq='B')
     df = pd.DataFrame(data=tracks, index=dates, columns=['Track'+str(1+i) for i in range(N)])
-    
-    return df
 
+    return df
 
 
 def df_one_idx_several_col():
     df = load_df(DF_ONE_IDX_SEVERAL_COL)
     df = df.set_index('Fruit')
     return df
+
 
 def df_one_idx_several_col_2():
     df = load_df(DF_ONE_IDX_SEVERAL_COL_2)
@@ -88,6 +87,3 @@ def df_several_idx_one_col():
     df = df.set_index(['Region', 'Country', 'Cause'])
     df = df.sortlevel()
     return df
-
-
-

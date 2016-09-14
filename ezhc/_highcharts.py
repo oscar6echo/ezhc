@@ -1,7 +1,6 @@
 
-from _wrapper import Wrapper
-from _plot import plot, html
-
+from ._wrapper import Wrapper
+from ._plot import plot, html
 
 
 class Highcharts(Wrapper):
@@ -15,7 +14,7 @@ class Highcharts(Wrapper):
     def __init__(self):
         Wrapper.__init__(self, lib='highcharts')
 
-        #default config
+        # default config
         self.credits.enabled = False
         self.exporting.enabled = True
         self.chart.animation = False
@@ -30,17 +29,16 @@ class Highcharts(Wrapper):
         self.plotOptions.bubble.animation = False
         self.plotOptions.treemap.animation = False
 
-
     def plot(self, dated=True, save=False, save_name=None, html_init=None,
              js_option_postprocess=None, js_extra=None, callback=None):
         opt = self.to_dict()
         return plot(opt, lib='highcharts', dated=dated, save=save, save_name=save_name,
-            html_init=html_init, js_option_postprocess=js_option_postprocess,
-            js_extra=js_extra, callback=callback)
+                    html_init=html_init, js_option_postprocess=js_option_postprocess,
+                    js_extra=js_extra, callback=callback)
 
     def html(self, dated=True, save=False, save_name=None, html_init=None,
              js_option_postprocess=None, js_extra=None, callback=None):
         opt = self.to_dict()
         return html(opt, lib='highcharts', dated=dated, save=save, save_name=save_name,
-            html_init=html_init, js_option_postprocess=js_option_postprocess,
-            js_extra=js_extra, callback=callback)
+                    html_init=html_init, js_option_postprocess=js_option_postprocess,
+                    js_extra=js_extra, callback=callback)

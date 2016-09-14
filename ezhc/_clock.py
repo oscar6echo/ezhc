@@ -1,5 +1,5 @@
 
-from _highcharts import Highcharts
+from ._highcharts import Highcharts
 
 
 
@@ -10,6 +10,8 @@ class Clock(Highcharts):
     """
 
     def __init__(self):
+
+        Highcharts.__init__(self)
 
         self.js_extra = """
         function getNow() {
@@ -68,7 +70,6 @@ class Clock(Highcharts):
         }
         """
 
-
         self.g = Highcharts()
 
         self.g.chart = {
@@ -84,7 +85,7 @@ class Clock(Highcharts):
 
         self.g.pane.background = [
             # default background
-            {}, 
+            {},
             # reflex for supported browsers
             {'backgroundColor': {
                 'radialGradient': {
@@ -122,6 +123,8 @@ class Clock(Highcharts):
 
         self.g.tooltip.formatter = 'function() { return this.series.chart.tooltipText; }'
 
+        self.g.exporting.enabled = False
+
         self.g.series = [{
             'data': [{
                 'id': 'hour',
@@ -153,8 +156,6 @@ class Clock(Highcharts):
                 'enabled': False
             }
         }]
-
-
 
 
 
