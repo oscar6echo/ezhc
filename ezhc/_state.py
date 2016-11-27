@@ -1,4 +1,5 @@
 
+import sys
 import os
 import json
 from ._config import HC_OPTION_FILE, HC_OBJECT_FILE, \
@@ -9,8 +10,12 @@ from ._config import HC_OPTION_FILE, HC_OBJECT_FILE, \
 def load_resource(src):
     _dir = os.path.dirname(__file__)
     object_builder_file = os.path.join(_dir, API_DIR, src)
-    with open(object_builder_file, encoding='UTF-8') as obj_build:
-        return json.load(obj_build)
+    if sys.version_info.major == 3:
+        with open(object_builder_file, encoding='UTF-8') as obj_build:
+            return json.load(obj_build)
+    else:
+        with open(object_builder_file) as obj_build:
+            return json.load(obj_build)
 
 
 class State(object):
