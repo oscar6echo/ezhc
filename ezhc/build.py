@@ -20,6 +20,11 @@ def series(df, *args, **kwargs):
             }
             if c in kwargs.get('color', []):
                 d['color'] = kwargs['color'].get(c)
+            if c in kwargs.get('fillColor', []):
+                d['type'] = 'area'
+                d['fillColor'] = kwargs['fillColor'].get(c)
+            if c in kwargs.get('lineColor', []):
+                d['lineColor'] = kwargs['lineColor'].get(c)
             if kwargs.get('dashStyle', []):
                 d['dashStyle'] = kwargs['dashStyle'].get(c, 'Solid')
             series.append(d)
