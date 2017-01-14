@@ -50,38 +50,49 @@ def series_range(df, *args, **kwargs):
     return axis_categories, series
 
 
-def series_drilldown(df, *args, **kwargs):
+def series_drilldown(df, colorByPoint=True, pointPlacement='on', *args, **kwargs):
     idx = df.index
     col = df.columns
     assert(isinstance(idx, pd.core.index.MultiIndex))
     assert(len(idx.levshape) == 2)
-    assert(len(col) == 1)
-    assert(df[col[0]].dtype.kind in 'if')
+    for c in col:
+        assert df[c].dtype.kind in 'if'
 
     levone = list(idx.levels[0])
     data = []
+    series = []
     drilldownSeries = []
-    for c in levone:
-        dfs = df.xs(c)
-        ii = dfs.index.values.flatten()
-        vv = dfs.values.flatten()
+    for co in col:
+        data = []
+        for c in levone:
+            dfs = df.xs(c)
+            ii = dfs[[co]].index.values.flatten()
+            vv = dfs[[co]].values.flatten()
 
-        d1 = {
-            'name': c,
-            'y': dfs.sum().values[0],
-            'drilldown': c if len(dfs) > 1 else None,
-        }
-        data.append(d1)
-
-        if len(dfs) > 1:
-            d2 = {
+            d1 = {
                 'name': c,
-                'data': [[str(ii[q]), vv[q]] for q in range(len(ii))],
-                'id': c,
+                'y': dfs[[co]].sum().values[0],
+                'drilldown': c+' - '+co if len(dfs) > 1 else None,
+                'pointPlacement': pointPlacement
             }
-            drilldownSeries.append(d2)
+            if co in kwargs.get('color', []):
+                d1['color'] = kwargs['color'].get(co)
+            data.append(d1)
 
-    series = [{'name': col[0], 'data': data, 'colorByPoint': True}]
+            if len(dfs) > 1:
+                d2 = {
+                    'name': c+' - '+co,
+                    'data': [[str(ii[q]), vv[q]] for q in range(len(ii))],
+                    'id': c+' - '+co,
+                    'pointPlacement': pointPlacement
+                }
+                drilldownSeries.append(d2)
+
+        s = {'name': co, 'data': data, 'colorByPoint': colorByPoint}
+        if co in kwargs.get('color', []):
+            s['color'] = kwargs['color'].get(co)
+        series.append(s)
+
     return series, drilldownSeries
 
 

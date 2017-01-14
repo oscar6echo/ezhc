@@ -73,4 +73,5 @@ DF_SCATTER = 'df_scatter.csv'
 DF_BUBBLE = 'df_bubble.csv'
 DF_HEATMAP = 'df_heatmap.csv'
 DF_SEVERAL_IDX_ONE_COL = 'df_several_idx_one_col.csv'
+DF_TWO_IDX_SEVERAL_COL = 'df_two_idx_several_col.csv'
 
