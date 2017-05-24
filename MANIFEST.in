@@ -1,0 +1,14 @@
+# necessary to push to PyPI
+# cf. https://tom-christie.github.io/articles/pypi/
+
+# subfolders
+recursive-include ezhc/api *
+recursive-include ezhc/samples *
+recursive-include ezhc/script *
+
+# Demo notebook
+include demo_ezhc.ipynb
+
+# Misc
+include LICENSE.txt
+include README.rst
