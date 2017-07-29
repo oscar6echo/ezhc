@@ -1,6 +1,6 @@
 
 from ._wrapper import Wrapper
-from ._plot import plot, html
+from ._plot import plot, html, opt_to_dict, opt_to_json
 
 
 class Highcharts(Wrapper):
@@ -29,16 +29,26 @@ class Highcharts(Wrapper):
         self.plotOptions.bubble.animation = False
         self.plotOptions.treemap.animation = False
 
-    def plot(self, dated=True, save=False, save_name=None, html_init=None,
-             js_option_postprocess=None, js_extra=None, callback=None):
+    def options_as_dict(self, chart_id='chart_id'):
+        opt = self.to_dict()
+        return opt_to_dict(opt, chart_id=chart_id)
+
+    def options_as_json(self, chart_id='chart_id'):
+        opt = self.to_dict()
+        return opt_to_json(opt, chart_id=chart_id, save=False, save_name=None, save_path='saved')
+
+    def plot(self, dated=True, save=False, save_name=None, save_path='saved', notebook=True,
+             html_init=None, js_option_postprocess=None, js_extra=None, callback=None):
         opt = self.to_dict()
         return plot(opt, lib='highcharts', dated=dated, save=save, save_name=save_name,
+                    save_path=save_path, notebook=notebook,
                     html_init=html_init, js_option_postprocess=js_option_postprocess,
                     js_extra=js_extra, callback=callback)
 
-    def html(self, dated=True, save=False, save_name=None, html_init=None,
-             js_option_postprocess=None, js_extra=None, callback=None):
+    def html(self, dated=True, save=False, save_name=None, save_path='saved', notebook=True,
+             html_init=None, js_option_postprocess=None, js_extra=None, callback=None):
         opt = self.to_dict()
         return html(opt, lib='highcharts', dated=dated, save=save, save_name=save_name,
+                    save_path=save_path, notebook=notebook,
                     html_init=html_init, js_option_postprocess=js_option_postprocess,
                     js_extra=js_extra, callback=callback)
