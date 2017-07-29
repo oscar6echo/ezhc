@@ -9,23 +9,25 @@ from setuptools import setup
 with open('README.rst') as f:
     long_description = f.read()
 
+version = '0.6.5'
 
 setup(
   name = 'ezhc',
   packages = ['ezhc'],
-  version = '0.6.4',
+  version = version,
   description = 'easy Highcharts & Highstock, dynamic plots from pandas dataframes in the Jupyter notebook',
   long_description = long_description,
   author = 'oscar6echo',
   author_email = 'olivier.borderies@gmail.com',
   url = 'https://github.com/oscar6echo/ezhc', # use the URL to the github repo
-  download_url = 'https://github.com/oscar6echo/ezhc/tarball/0.6.4', # tag number at the end
+  download_url = 'https://github.com/oscar6echo/ezhc/tarball/' + version, # tag number at the end
   keywords = ['Highcharts', 'Highstock', 'pandas', 'notebook', 'javascript'], # arbitrary keywords
   license='MIT',
   classifiers = [ 'Development Status :: 4 - Beta',
                   'License :: OSI Approved :: MIT License',
                   'Programming Language :: Python :: 2.7',
                   'Programming Language :: Python :: 3.5'
+                  'Programming Language :: Python :: 3.6'
   ],
   install_requires = [
     'pandas>=0.17',
