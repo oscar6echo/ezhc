@@ -1,4 +1,4 @@
-###ezhc
+## ezhc
 
 **ezhc** stands for easy Highcharts.
 [Highcharts](http://www.highcharts.com/) is a popular, flexible, versatile, user friendly visualisation javascript library.
