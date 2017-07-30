@@ -33,9 +33,9 @@ class Highcharts(Wrapper):
         opt = self.to_dict()
         return opt_to_dict(opt, chart_id=chart_id)
 
-    def options_as_json(self, chart_id='chart_id'):
+    def options_as_json(self, chart_id='chart_id', save=False, save_name=None, save_path='saved'):
         opt = self.to_dict()
-        return opt_to_json(opt, chart_id=chart_id, save=False, save_name=None, save_path='saved')
+        return opt_to_json(opt, chart_id=chart_id, save=save, save_name=save_name, save_path=save_path)
 
     def plot(self, dated=True, save=False, save_name=None, save_path='saved', notebook=True,
              html_init=None, js_option_postprocess=None, js_extra=None, callback=None):
