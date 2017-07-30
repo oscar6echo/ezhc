@@ -9,7 +9,7 @@ from setuptools import setup
 with open('README.rst') as f:
     long_description = f.read()
 
-version = '0.6.5'
+version = '0.6.6'
 
 setup(
   name = 'ezhc',
