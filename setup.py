@@ -2,6 +2,7 @@
 # cf. http://peterdowns.com/posts/first-time-with-pypi.html
 # cf. https://tom-christie.github.io/articles/pypi/
 # cf. https://pythonhosted.org/setuptools/setuptools.html
+# cf. http://peterdowns.com/posts/first-time-with-pypi.html
 
 
 from setuptools import setup
