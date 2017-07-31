@@ -115,12 +115,12 @@ def html(options, lib='hicharts', dated=True, save=False, save_name=None, save_p
     </script>""" % (JS_LIBS_ONE, JS_LIBS_TWO, js_option, js_extra, js_call, js_debug)
 
     # save
+    js_load = ''.join(['<script src="%s"></script>' % e for e in JS_SAVE])
     if save == True:
         if not os.path.exists(save_path):
             os.makedirs(save_path)
         tag = save_name if save_name else 'plot'
         dated = dt.datetime.now().strftime('_%Y%m%d_%H%M%S') if dated else ''
-        js_load = ''.join(['<script src="%s"></script>' % e for e in JS_SAVE])
 
         with open(os.path.join(save_path, tag + dated + '.html'), 'w') as f:
             f.write(js_load + html + js)
