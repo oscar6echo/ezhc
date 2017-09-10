@@ -1,5 +1,5 @@
 ezhc
-~~~~
+====
 
 **ezhc** stands for easy Highcharts.
 `Highcharts <http://www.highcharts.com/>`__ is a popular, flexible,
@@ -32,3 +32,7 @@ To install run from command line:
   contains an image, it will be burned into the standalone file upon
   save.
 | Cf. examples in the notebook.
+
+.. raw:: html
+
+   <!-- pandoc --from=markdown --to=rst --output=README.rst README.md -->

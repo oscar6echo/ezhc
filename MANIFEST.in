@@ -10,6 +10,6 @@ recursive-include ezhc/script *
 include demo_ezhc.ipynb
 
 # Misc
-include LICENSE.txt
+include LICENSE
 include README.rst
-
+include requirements.txt

@@ -1,4 +1,4 @@
-## ezhc
+# ezhc
 
 **ezhc** stands for easy Highcharts.
 [Highcharts](http://www.highcharts.com/) is a popular, flexible, versatile, user friendly visualisation javascript library.
@@ -20,3 +20,5 @@ There are exceptions to the transparent wrapping approach:
 I added 2 datatables ([datatables.net](http://datatables.net/)) linked to the Highstock call.  
 A footer (described in HTML) can be added below a plot. If the footer contains an image, it will be burned into the standalone file upon save.  
 Cf. examples in the notebook.  
+
+<!-- pandoc --from=markdown --to=rst --output=README.rst README.md -->
