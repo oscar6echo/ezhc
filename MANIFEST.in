@@ -6,9 +6,6 @@ recursive-include ezhc/api *
 recursive-include ezhc/samples *
 recursive-include ezhc/script *
 
-# Demo notebook
-include demo_ezhc.ipynb
-
 # Misc
 include LICENSE
 include README.rst
