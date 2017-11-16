@@ -83,8 +83,8 @@ class Wrapper(object):
     def info(self):
         def correct_url(s):
                 url = 'href=\"#'
-                url_highcharts = 'href=\"http://api.highcharts.com/highcharts#'
-                url_highstock = 'href=\"http://api.highcharts.com/highstock#'
+                url_highcharts = 'href=\"https://api.highcharts.com/highcharts#'
+                url_highstock = 'href=\"https://api.highcharts.com/highstock#'
                 li = s.split(url)
                 if len(li) == 1:
                     return s
