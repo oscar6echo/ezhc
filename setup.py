@@ -4,13 +4,14 @@
 # cf. https://pythonhosted.org/setuptools/setuptools.html
 # cf. http://peterdowns.com/posts/first-time-with-pypi.html
 
+# python setup.py sdist upload -r pypi
 
 from setuptools import setup
 
 with open('README.rst') as f:
     long_description = f.read()
 
-version = '0.6.7'
+version = '0.6.8'
 
 setup(
   name = 'ezhc',
