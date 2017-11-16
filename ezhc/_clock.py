@@ -6,7 +6,7 @@ from ._highcharts import Highcharts
 class Clock(Highcharts):
     """
     Highcharts Clock
-    http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/gauge-clock/
+    https://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/gauge-clock/
     """
 
     def __init__(self):
