@@ -16,8 +16,8 @@ class Highstock(Wrapper):
     """
     Main Highstock Object
 
-    API: http://api.highcharts.com/highstock
-    Demos: http://www.highcharts.com/stock/demo
+    API: https://api.highcharts.com/highstock
+    Demos: https://www.highcharts.com/stock/demo
     """
 
     def __init__(self):
