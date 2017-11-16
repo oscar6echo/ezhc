@@ -7,8 +7,8 @@ class Highcharts(Wrapper):
     """
     Main Highcharts Object
 
-    API: http://api.highcharts.com/highcharts
-    Demos: http://www.highcharts.com/demo
+    API: https://api.highcharts.com/highcharts
+    Demos: https://www.highcharts.com/demo
     """
 
     def __init__(self):
