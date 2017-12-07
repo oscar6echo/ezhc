@@ -2,79 +2,61 @@
 # cf. http://peterdowns.com/posts/first-time-with-pypi.html
 # cf. https://tom-christie.github.io/articles/pypi/
 # cf. https://pythonhosted.org/setuptools/setuptools.html
-# cf. http://peterdowns.com/posts/first-time-with-pypi.html
 
+# commands:
+# python setup.py sdist upload -r testpypi
 # python setup.py sdist upload -r pypi
 
-from setuptools import setup
 
-with open('README.rst') as f:
-    long_description = f.read()
+from os import path
+from codecs import open
+from setuptools import setup, find_packages
+from distutils.util import convert_path
+from pip.req import parse_requirements
 
-version = '0.6.8'
+module = 'ezhc'
+
+here = path.abspath(path.dirname(__file__))
+
+meta_ns = {}
+ver_path = convert_path(module + '/__meta__.py')
+with open(ver_path) as ver_file:
+    exec(ver_file.read(), meta_ns)
+
+name = meta_ns['__name__']
+packages = meta_ns['__packages__']
+version = meta_ns['__version__']
+description = meta_ns['__description__']
+author = meta_ns['__author__']
+author_email = meta_ns['__author_email__']
+url = meta_ns['__url__']
+download_url = meta_ns['__download_url__']
+keywords = meta_ns['__keywords__']
+license = meta_ns['__license__']
+classifiers = meta_ns['__classifiers__']
+include_package_data = meta_ns['__include_package_data__']
+package_data = meta_ns['__package_data__']
+
+install_requires = parse_requirements('requirements.txt', session=False)
+install_requires = [str(ir.req) for ir in install_requires]
+
+# with open('README.rst') as f:
+#     long_description = f.read()
 
 setup(
-  name = 'ezhc',
-  packages = ['ezhc'],
-  version = version,
-  description = 'easy Highcharts & Highstock, dynamic plots from pandas dataframes in the Jupyter notebook',
-  long_description = long_description,
-  author = 'oscar6echo',
-  author_email = 'olivier.borderies@gmail.com',
-  url = 'https://github.com/oscar6echo/ezhc', # use the URL to the github repo
-  download_url = 'https://github.com/oscar6echo/ezhc/tarball/' + version, # tag number at the end
-  keywords = ['Highcharts', 'Highstock', 'pandas', 'notebook', 'javascript'], # arbitrary keywords
-  license='MIT',
-  classifiers = [ 'Development Status :: 4 - Beta',
-                  'License :: OSI Approved :: MIT License',
-                  'Programming Language :: Python :: 2.7',
-                  'Programming Language :: Python :: 3.5',
-                  'Programming Language :: Python :: 3.6'
-  ],
-  install_requires = [
-    'pandas>=0.17',
-    'jinja2>=2.8',
-    'ipython>=3.0',
-    'requests>=2.9'
-  ],
-  include_package_data=True,
-  package_data={
-    'api':
-         ['api/hc_object.json',
-          'api/hc_option.json',
-          'api/hs_object.json',
-          'api/hs_option.json'
-         ],
-    'script':
-        ['script/financial_time_series_0.js',
-         'script/financial_time_series_table_1.js',
-         'script/financial_time_series_table_2.js',
-         'script/financial_time_series_table_options_1.js',
-         'script/financial_time_series_table_options_2.js',
-         'financial_time_series_table.html',
-         'script/formatter_basic.js',
-         'script/formatter_percent.js',
-         'script/formatter_quantile.js',
-         'script/json_parse.js',
-         'script/Jupyter_logo.png',
-         'script/SG_logo.png',
-         'script/template_disclaimer.html',
-         'script/tooltip_positioner_center_top.js',
-         'script/tooltip_positioner_left_top.js',
-         'script/tooltip_positioner_right_top.js'
-        ],
-    'samples':
-        ['samples/df_bubble.csv',
-         'samples/df_heatmap.csv',
-         'samples/df_one_idx_one_col.csv',
-         'samples/df_one_idx_several_col_2.csv',
-         'samples/df_one_idx_several_col.csv',
-         'samples/df_one_idx_two_col.csv',
-         'samples/df_scatter.csv',
-         'samples/df_several_idx_one_col.csv',
-         'samples/df_two_idx_one_col.csv',
-         'samples/df_two_idx_several_col.csv'
-        ]
-    },
+    name=name,
+    version=version,
+    description=description,
+    # long_description=long_description,
+    author=author,
+    author_email=author_email,
+    url=url,
+    download_url=download_url,
+    keywords=keywords,
+    license=license,
+    classifiers=classifiers,
+    packages=packages,
+    install_requires=install_requires,
+    include_package_data=include_package_data,
+    package_data=package_data
 )
-

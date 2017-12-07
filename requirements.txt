@@ -1,1 +1,4 @@
-pandas
+pandas>=0.17
+jinja2>=2.8
+ipython>=3.0
+requests>=2.9
