@@ -85,11 +85,11 @@ def df_heatmap():
 def df_several_idx_one_col():
     df = load_df(DF_SEVERAL_IDX_ONE_COL)
     df = df.set_index(['Region', 'Country', 'Cause'])
-    df = df.sortlevel()
+    df = df.sort_index()
     return df
 
 def df_two_idx_several_col():
     df = load_df(DF_TWO_IDX_SEVERAL_COL)
     df = df.set_index(['Strategy', 'Ticker'])
-    df = df.sortlevel()
+    df = df.sort_index()
     return df
