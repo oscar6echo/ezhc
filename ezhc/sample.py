@@ -5,7 +5,8 @@ import pandas as pd
 
 from ._config import SAMPLES_DIR, DF_ONE_IDX_SEVERAL_COL, DF_ONE_IDX_SEVERAL_COL_2, \
                     DF_ONE_IDX_ONE_COL, DF_ONE_IDX_TWO_COL, DF_TWO_IDX_ONE_COL, DF_SCATTER, \
-                    DF_BUBBLE, DF_HEATMAP, DF_SEVERAL_IDX_ONE_COL, DF_TWO_IDX_SEVERAL_COL
+                    DF_BUBBLE, DF_HEATMAP, DF_SEVERAL_IDX_ONE_COL, DF_SEVERAL_IDX_ONE_COL_2, \
+                    DF_TWO_IDX_SEVERAL_COL
 
 
 def load_df(src):
@@ -87,6 +88,13 @@ def df_several_idx_one_col():
     df = df.set_index(['Region', 'Country', 'Cause'])
     df = df.sort_index()
     return df
+
+def df_several_idx_one_col_2():
+    df = load_df(DF_SEVERAL_IDX_ONE_COL_2)
+    df = df.set_index(['Continent', 'Region', 'Country'])
+    df = df.sort_index()
+    return df
+
 
 def df_two_idx_several_col():
     df = load_df(DF_TWO_IDX_SEVERAL_COL)
