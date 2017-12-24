@@ -1,0 +1,243 @@
+Continent,Region,Country,Population
+Africa,Eastern Africa,Ethiopia,104957438.0
+Africa,Eastern Africa,Tanzania,57310019.0
+Africa,Eastern Africa,Kenya,49699862.0
+Africa,Eastern Africa,Uganda,42862958.0
+Africa,Eastern Africa,Mozambique,29668834.0
+Africa,Eastern Africa,Madagascar,25570895.0
+Africa,Eastern Africa,Malawi,18622104.0
+Africa,Eastern Africa,Zambia,17094130.0
+Africa,Eastern Africa,Zimbabwe,16529904.0
+Africa,Eastern Africa,Somalia,14742523.0
+Africa,Eastern Africa,South Sudan,12575714.0
+Africa,Eastern Africa,Rwanda,12208407.0
+Africa,Eastern Africa,Burundi,10864245.0
+Africa,Eastern Africa,Eritrea,5068831.0
+Africa,Eastern Africa,Mauritius,1265138.0
+Africa,Eastern Africa,Djibouti,956985.0
+Africa,Eastern Africa,Réunion,876562.0
+Africa,Eastern Africa,Comoros,813912.0
+Africa,Eastern Africa,Mayotte,253045.0
+Africa,Eastern Africa,Seychelles,94737.0
+Africa,Western Africa,Nigeria,190886311.0
+Africa,Western Africa,Ghana,28833629.0
+Africa,Western Africa,Côte Ivoire,24294750.0
+Africa,Western Africa,Niger,21477348.0
+Africa,Western Africa,Burkina Faso,19193382.0
+Africa,Western Africa,Mali,18541980.0
+Africa,Western Africa,Senegal,15850567.0
+Africa,Western Africa,Guinea,12717176.0
+Africa,Western Africa,Benin,11175692.0
+Africa,Western Africa,Togo,7797694.0
+Africa,Western Africa,Sierra Leone,7557212.0
+Africa,Western Africa,Liberia,4731906.0
+Africa,Western Africa,Mauritania,4420184.0
+Africa,Western Africa,The Gambia,2100568.0
+Africa,Western Africa,Guinea-Bissau,1861283.0
+Africa,Western Africa,Cabo Verde,546388.0
+Africa,Western Africa,"Saint Helena, Ascension and Tristan da Cunha",4049.0
+Africa,North Africa,Egypt,97553151.0
+Africa,North Africa,Algeria,41318142.0
+Africa,North Africa,Sudan,40533330.0
+Africa,North Africa,Morocco,35739580.0
+Africa,North Africa,Tunisia,11532127.0
+Africa,North Africa,Libya,6374616.0
+Africa,North Africa,Western Sahara,552628.0
+Africa,Central Africa,Democratic Republic of the Congo,81339988.0
+Africa,Central Africa,Angola,29784193.0
+Africa,Central Africa,Cameroon,24053727.0
+Africa,Central Africa,Chad,14899994.0
+Africa,Central Africa,Congo,5260750.0
+Africa,Central Africa,Central African Republic,4659080.0
+Africa,Central Africa,Gabon,2025137.0
+Africa,Central Africa,Equatorial Guinea,1267689.0
+Africa,Central Africa,Sao Tome and Principe,204327.0
+Africa,South America,Brazil,209288278.0
+Africa,South America,Colombia,49065615.0
+Africa,South America,Argentina,44271041.0
+Africa,South America,Peru,32165485.0
+Africa,South America,Venezuela,31977065.0
+Africa,South America,Chile,18054726.0
+Africa,South America,Ecuador,16624858.0
+Africa,South America,Bolivia,11051600.0
+Africa,South America,Paraguay,6811297.0
+Africa,South America,Uruguay,3456750.0
+Africa,South America,Guyana,777859.0
+Africa,South America,Suriname,563402.0
+Africa,South America,French Guiana,282731.0
+Africa,South America,Falkland Islands,2910.0
+America,South America,Brazil,209288278.0
+America,South America,Colombia,49065615.0
+America,South America,Argentina,44271041.0
+America,South America,Peru,32165485.0
+America,South America,Venezuela,31977065.0
+America,South America,Chile,18054726.0
+America,South America,Ecuador,16624858.0
+America,South America,Bolivia,11051600.0
+America,South America,Paraguay,6811297.0
+America,South America,Uruguay,3456750.0
+America,South America,Guyana,777859.0
+America,South America,Suriname,563402.0
+America,South America,French Guiana,282731.0
+America,South America,Falkland Islands,2910.0
+America,Northern America,United States,324459463.0
+America,Northern America,Canada,36624199.0
+America,Northern America,Bermuda,61349.0
+America,Northern America,Greenland,56480.0
+America,Northern America,Saint Pierre and Miquelon,6320.0
+America,Central America,Mexico,129163276.0
+America,Central America,Guatemala,16913503.0
+America,Central America,Honduras,9265067.0
+America,Central America,El Salvador,6377853.0
+America,Central America,Nicaragua,6217581.0
+America,Central America,Costa Rica,4905769.0
+America,Central America,Panama,4098587.0
+America,Central America,Belize,374681.0
+America,Caribbean,Cuba,11484636.0
+America,Caribbean,Haiti,10981229.0
+America,Caribbean,Dominican Republic,10766998.0
+America,Caribbean,Puerto Rico,3663131.0
+America,Caribbean,Jamaica,2890299.0
+America,Caribbean,Trinidad and Tobago,1369125.0
+America,Caribbean,Guadeloupe,449568.0
+America,Caribbean,Bahamas,395361.0
+America,Caribbean,Martinique,384896.0
+America,Caribbean,Barbados,285719.0
+America,Caribbean,Saint Lucia,178844.0
+America,Caribbean,Curaçao,160539.0
+America,Caribbean,Saint Vincent and the Grenadines,109897.0
+America,Caribbean,Grenada,107825.0
+America,Caribbean,Aruba,105264.0
+America,Caribbean,United States Virgin Islands,104901.0
+America,Caribbean,Antigua and Barbuda,102012.0
+America,Caribbean,Dominica,73925.0
+America,Caribbean,Cayman Islands,61559.0
+America,Caribbean,Saint Kitts and Nevis,55345.0
+America,Caribbean,Sint Maarten,40120.0
+America,Caribbean,Turks and Caicos Islands,35446.0
+America,Caribbean,British Virgin Islands,31196.0
+America,Caribbean,Caribbean Netherlands,25398.0
+America,Caribbean,Anguilla,14909.0
+America,Caribbean,Montserrat,5177.0
+Asia,Southern Asia,India,1339180127.0
+Asia,Southern Asia,Pakistan,197015955.0
+Asia,Southern Asia,Bangladesh,164669751.0
+Asia,Southern Asia,Iran,81162788.0
+Asia,Southern Asia,Afghanistan,35530081.0
+Asia,Southern Asia,Nepal,29304998.0
+Asia,Southern Asia,Sri Lanka,20876917.0
+Asia,Southern Asia,Bhutan,807610.0
+Asia,Southern Asia,Maldives,436330.0
+Asia,Eastern Asia,China,1409517397.0
+Asia,Eastern Asia,Japan,127484450.0
+Asia,Eastern Asia,South Korea,50982212.0
+Asia,Eastern Asia,North Korea,25490965.0
+Asia,Eastern Asia,Taiwan,23626456.0
+Asia,Eastern Asia,Hong Kong,7364883.0
+Asia,Eastern Asia,Mongolia,3075647.0
+Asia,Eastern Asia,Macau,622567.0
+Asia,South-Eastern Asia,Indonesia,263991379.0
+Asia,South-Eastern Asia,Philippines,104918090.0
+Asia,South-Eastern Asia,Vietnam,95540800.0
+Asia,South-Eastern Asia,Thailand,69037513.0
+Asia,South-Eastern Asia,Myanmar,53370609.0
+Asia,South-Eastern Asia,Malaysia,31624264.0
+Asia,South-Eastern Asia,Cambodia,16005373.0
+Asia,South-Eastern Asia,Laos,6858160.0
+Asia,South-Eastern Asia,Singapore,5708844.0
+Asia,South-Eastern Asia,Timor-Leste,1296311.0
+Asia,South-Eastern Asia,Brunei,428697.0
+Asia,Western Asia,Turkey,80745020.0
+Asia,Western Asia,Iraq,38274618.0
+Asia,Western Asia,Saudi Arabia,32938213.0
+Asia,Western Asia,Yemen,28250420.0
+Asia,Western Asia,Syria,18269868.0
+Asia,Western Asia,Azerbaijan,9827589.0
+Asia,Western Asia,Jordan,9702353.0
+Asia,Western Asia,United Arab Emirates,9400145.0
+Asia,Western Asia,Israel,8321570.0
+Asia,Western Asia,Lebanon,6082357.0
+Asia,Western Asia,Palestine,4920724.0
+Asia,Western Asia,Oman,4636262.0
+Asia,Western Asia,Kuwait,4136528.0
+Asia,Western Asia,Georgia,3912061.0
+Asia,Western Asia,Armenia,2930450.0
+Asia,Western Asia,Qatar,2639211.0
+Asia,Western Asia,Bahrain,1492584.0
+Asia,Central Asia,Uzbekistan,31910641.0
+Asia,Central Asia,Kazakhstan,18204499.0
+Asia,Central Asia,Tajikistan,8921343.0
+Asia,Central Asia,Kyrgyzstan,6045117.0
+Asia,Central Asia,Turkmenistan,5758075.0
+Europe,Eastern Europe,Russia,143989754.0
+Europe,Eastern Europe,Ukraine,44222947.0
+Europe,Eastern Europe,Poland,38170712.0
+Europe,Eastern Europe,Romania,19679306.0
+Europe,Eastern Europe,Czechia,10618303.0
+Europe,Eastern Europe,Hungary,9721559.0
+Europe,Eastern Europe,Belarus,9468338.0
+Europe,Eastern Europe,Bulgaria,7084571.0
+Europe,Eastern Europe,Slovakia,5447662.0
+Europe,Eastern Europe,Moldova,4051212.0
+Europe,Eastern Europe,Cyprus,1179551.0
+Europe,Northern Europe,United Kingdom,66181585.0
+Europe,Northern Europe,Sweden,9910701.0
+Europe,Northern Europe,Denmark,5733551.0
+Europe,Northern Europe,Finland,5523231.0
+Europe,Northern Europe,Norway,5305383.0
+Europe,Northern Europe,Ireland,4761657.0
+Europe,Northern Europe,Lithuania,2890297.0
+Europe,Northern Europe,Latvia,1949670.0
+Europe,Northern Europe,Estonia,1309632.0
+Europe,Northern Europe,Iceland,335025.0
+Europe,Northern Europe,Guernsey and  Jersey,165314.0
+Europe,Northern Europe,Isle of Man,84287.0
+Europe,Northern Europe,Faroe Islands,49290.0
+Europe,Southern Europe,Italy,59359900.0
+Europe,Southern Europe,Spain,46354321.0
+Europe,Southern Europe,Greece,11159773.0
+Europe,Southern Europe,Portugal,10329506.0
+Europe,Southern Europe,Serbia,8790574.0
+Europe,Southern Europe,Croatia,4189353.0
+Europe,Southern Europe,Bosnia and Herzegovina,3507017.0
+Europe,Southern Europe,Albania,2930187.0
+Europe,Southern Europe,Republic of Macedonia,2083160.0
+Europe,Southern Europe,Slovenia,2079976.0
+Europe,Southern Europe,Montenegro,628960.0
+Europe,Southern Europe,Malta,430835.0
+Europe,Southern Europe,Andorra,76965.0
+Europe,Southern Europe,Gibraltar,34571.0
+Europe,Southern Europe,San Marino,33400.0
+Europe,Southern Europe,Vatican City,792.0
+Europe,Western Europe,Germany,82114224.0
+Europe,Western Europe,France,64979548.0
+Europe,Western Europe,Netherlands,17035938.0
+Europe,Western Europe,Belgium,11429336.0
+Europe,Western Europe,Austria,8735453.0
+Europe,Western Europe,Switzerland,8476005.0
+Europe,Western Europe,Luxembourg,583455.0
+Europe,Western Europe,Monaco,38695.0
+Europe,Western Europe,Liechtenstein,37922.0
+Oceanic,Australia and New Zealand,Australia,24450561.0
+Oceanic,Australia and New Zealand,New Zealand,4705818.0
+Oceanic,Melanesia,Papua New Guinea,
+Oceanic,Melanesia,Fiji,905502.0
+Oceanic,Melanesia,Solomon Islands,611343.0
+Oceanic,Melanesia,New Caledonia,276255.0
+Oceanic,Melanesia,Vanuatu,276244.0
+Oceanic,Micronesia,Guam,164229.0
+Oceanic,Micronesia,Kiribati,116398.0
+Oceanic,Micronesia,Federated States of Micronesia,105544.0
+Oceanic,Micronesia,Northern Mariana Islands,55144.0
+Oceanic,Micronesia,Marshall Islands,53127.0
+Oceanic,Micronesia,Palau,21729.0
+Oceanic,Micronesia,Nauru,11359.0
+Oceanic,Polynesia,French Polynesia,283007.0
+Oceanic,Polynesia,Samoa,196440.0
+Oceanic,Polynesia,Tonga,108020.0
+Oceanic,Polynesia,American Samoa,55641.0
+Oceanic,Polynesia,Cook Islands,17380.0
+Oceanic,Polynesia,Wallis and Futuna,11773.0
+Oceanic,Polynesia,Tuvalu,11192.0
+Oceanic,Polynesia,Niue,1618.0
+Oceanic,Polynesia,Tokelau,1300.0
