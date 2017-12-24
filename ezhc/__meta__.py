@@ -3,7 +3,7 @@ __name__ = 'ezhc'
 name_url = __name__.replace('_', '-')
 
 __packages__ = [__name__]
-__version__ = '0.6.10'
+__version__ = '0.6.11'
 __description__ = 'easy Highcharts & Highstock, dynamic plots from pandas dataframes in the Jupyter notebook'
 __author__ = 'oscar6echo'
 __author_email__ = 'olivier.borderies@gmail.com'
@@ -53,6 +53,7 @@ __package_data__ = {
          'samples/df_one_idx_two_col.csv',
          'samples/df_scatter.csv',
          'samples/df_several_idx_one_col.csv',
+         'samples/df_several_idx_one_col_2.csv',
          'samples/df_two_idx_one_col.csv',
          'samples/df_two_idx_several_col.csv'
          ]
