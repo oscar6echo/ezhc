@@ -24,6 +24,7 @@ JS_LIBS_TWO = json.dumps([
     'https://code.highcharts.com/modules/exporting.js',
     'https://code.highcharts.com/modules/heatmap.js',
     'https://code.highcharts.com/modules/treemap.js',
+    'https://code.highcharts.com/modules/sunburst.js',
     'https://highcharts.github.io/export-csv/export-csv.js',
 ])
 
@@ -73,5 +74,6 @@ DF_SCATTER = 'df_scatter.csv'
 DF_BUBBLE = 'df_bubble.csv'
 DF_HEATMAP = 'df_heatmap.csv'
 DF_SEVERAL_IDX_ONE_COL = 'df_several_idx_one_col.csv'
+DF_SEVERAL_IDX_ONE_COL_2 = 'df_several_idx_one_col_2.csv'
 DF_TWO_IDX_SEVERAL_COL = 'df_two_idx_several_col.csv'
 
