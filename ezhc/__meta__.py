@@ -3,7 +3,7 @@ __name__ = 'ezhc'
 name_url = __name__.replace('_', '-')
 
 __packages__ = [__name__]
-__version__ = '0.6.11'
+__version__ = '0.6.14'
 __description__ = 'easy Highcharts & Highstock, dynamic plots from pandas dataframes in the Jupyter notebook'
 __author__ = 'oscar6echo'
 __author_email__ = 'olivier.borderies@gmail.com'
@@ -32,7 +32,7 @@ __package_data__ = {
          'script/financial_time_series_table_2.js',
          'script/financial_time_series_table_options_1.js',
          'script/financial_time_series_table_options_2.js',
-         'financial_time_series_table.html',
+         'script/financial_time_series_table.html',
          'script/formatter_basic.js',
          'script/formatter_percent.js',
          'script/formatter_quantile.js',
@@ -42,7 +42,28 @@ __package_data__ = {
          'script/template_disclaimer.html',
          'script/tooltip_positioner_center_top.js',
          'script/tooltip_positioner_left_top.js',
-         'script/tooltip_positioner_right_top.js'
+         'script/tooltip_positioner_right_top.js',
+         'script/themes/build_theme_json.ipynb',
+         'script/themes/avocado.js',
+         'script/themes/avocado.json',
+         'script/themes/dark-blue.js',
+         'script/themes/dark-blue.json',
+         'script/themes/dark-green.js',
+         'script/themes/dark-green.json',
+         'script/themes/dark-unica.js',
+         'script/themes/dark-unica.json',
+         'script/themes/gray.js',
+         'script/themes/gray.json',
+         'script/themes/grid-light.js',
+         'script/themes/grid-light.json',
+         'script/themes/grid.js',
+         'script/themes/grid.json',
+         'script/themes/sand-signika.js',
+         'script/themes/sand-signika.json',
+         'script/themes/skies.js',
+         'script/themes/skies.json',
+         'script/themes/sunset.js',
+         'script/themes/sunset.json'
          ],
     'samples':
         ['samples/df_bubble.csv',

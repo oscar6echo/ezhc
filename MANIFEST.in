@@ -5,8 +5,13 @@
 recursive-include ezhc/api *
 recursive-include ezhc/samples *
 recursive-include ezhc/script *
+recursive-include ezhc/script/themes *.json
+recursive-include ezhc/script/themes *.js
+recursive-include ezhc/script/themes *.ipynb
+recursive-exclude ezhc/script/themes/.ipynb_checkpoints *
+
+global-exclude *.py[co]
 
 # Misc
 include LICENSE
-include README.rst
 include requirements.txt
