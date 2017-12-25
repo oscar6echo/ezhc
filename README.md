@@ -12,7 +12,7 @@ Currently only [Highcharts](http://www.highcharts.com/demo) and [Highstock](http
 
 You need bring the data in a [pandas](http://pandas.pydata.org/) dataframe as shown in the many examples in the [demo notebook](http://nbviewer.ipython.org/github/oscar6echo/ezhc/blob/master/demo_ezhc.ipynb).
 
-To update global options and apply themes see the [demo notebook for global options and styles](http://nbviewer.ipython.org/github/oscar6echo/ezhc/blob/master/demo_ezhcdemo_ezhc_themes_and_global_options.ipynb).  
+To update global options and apply themes see the [demo notebook for global options and styles](http://nbviewer.ipython.org/github/oscar6echo/ezhc/blob/master/demo_ezhc_themes_and_global_options.ipynb).  
 The highcharts [official themes](https://github.com/highcharts/highcharts/tree/master/js/themes) are available in **ezhc**.
 
 ## 2 - Install
