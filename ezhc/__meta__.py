@@ -7,9 +7,11 @@ __version__ = '0.7.0'
 __description__ = 'easy Highcharts & Highstock, dynamic plots from pandas dataframes in the Jupyter notebook'
 __author__ = 'oscar6echo'
 __author_email__ = 'olivier.borderies@gmail.com'
-__url__ = 'https://github.com/oscar6echo/{}'.format(name_url)
-__download_url__ = 'https://github.com/oscar6echo/{}/tarball/{}'.format(name_url,
-                                                                        __version__)
+__url__ = 'https://github.com/{}/{}'.format(__author__,
+                                            name_url)
+__download_url__ = 'https://github.com/{}/{}/tarball/{}'.format(__author__,
+                                                                name_url,
+                                                                __version__)
 __keywords__ = ['Highcharts', 'Highstock', 'pandas', 'notebook', 'javascript']
 __license__ = 'MIT'
 __classifiers__ = ['Development Status :: 4 - Beta',
