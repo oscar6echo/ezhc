@@ -8,15 +8,11 @@
 # python setup.py sdist upload -r pypi
 
 
-from os import path
-from codecs import open
 from setuptools import setup, find_packages
 from distutils.util import convert_path
 from pip.req import parse_requirements
 
 module = 'ezhc'
-
-here = path.abspath(path.dirname(__file__))
 
 meta_ns = {}
 ver_path = convert_path(module + '/__meta__.py')
