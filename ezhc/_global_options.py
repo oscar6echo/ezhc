@@ -70,7 +70,7 @@ class GlobalOptions:
 
         return js
 
-    def inject(self, verbose=True):
+    def inject(self, verbose=False):
         if not self.js:
             self.js = self.create()
         if verbose:
