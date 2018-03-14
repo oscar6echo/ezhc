@@ -53,7 +53,7 @@ def series_range(df, *args, **kwargs):
     return axis_categories, series
 
 
-def series_drilldown(df, colorByPoint=True, pointPlacement='on', *args, **kwargs):
+def series_drilldown_orig(df, colorByPoint=True, pointPlacement='on', *args, **kwargs):
     idx = df.index
     col = df.columns
     assert(isinstance(idx, pd.core.index.MultiIndex))
@@ -97,6 +97,178 @@ def series_drilldown(df, colorByPoint=True, pointPlacement='on', *args, **kwargs
         series.append(s)
 
     return series, drilldownSeries
+
+
+def series_drilldown(df,
+                     top_name='Top',
+                     colorByPoint=True,
+                     pointPlacement='on',
+                     set_color=False,
+                     colors=None,
+                     set_precision=False,
+                     precision=None,
+                     *args,
+                     **kwargs):
+    idx = df.index
+    col = df.columns
+    assert(isinstance(idx, pd.core.index.MultiIndex))
+    for c in col:
+        assert df[c].dtype.kind in 'if'
+
+    class DrillDownBuilder:
+        """
+        Recursive build of drilldown structure
+        """
+
+        def __init__(self,
+                     df,
+                     top_name='Top',
+                     colorByPoint=True,
+                     pointPlacement='on',
+                     set_color=False,
+                     colors=None,
+                     set_precision=False,
+                     precision=None):
+
+            self.top_name = top_name
+            self.colorByPoint = colorByPoint
+            self.pointPlacement = pointPlacement
+            self.df = df
+            self.set_color = set_color
+            self.colors = colors
+            self.set_precision = set_precision
+            self.precision = precision
+
+            self.items = []
+            self.top_item = self.build(df)
+
+        def build(self, dfxs, parent=None, name=None):
+            top_items = []
+            for col in dfxs.columns:
+                dfc = dfxs[[col]]
+                item = {
+                    'id': col + '-toplevel',
+                    'name': dfc.columns[0]
+                }
+                if len(dfxs.columns) == 1:
+                    item['name'] = self.top_name
+                if parent:
+                    item['id'] = str(parent) + '-' + name
+                    item['name'] = name
+                if self.colorByPoint:
+                    item['colorByPoint'] = self.colorByPoint
+
+                data = []
+
+                idx = dfc.index
+                if isinstance(idx, pd.MultiIndex):
+
+                    for k, idx0 in enumerate(idx.levels[0]):
+                        df_sub = dfc.xs(idx0)
+                        total = df_sub.sum()[0]
+                        d = {
+                            'name': str(idx0),
+                            'y': total,
+                            'drilldown': item['id'] + '-' + str(idx0)
+                        }
+                        if self.pointPlacement:
+                            d['pointPlacement'] = self.pointPlacement
+                        if self.set_precision:
+                            d['y'] = round(total, self.precision)
+                        if self.set_color:
+                            d['color'] = self.colors[k % len(self.colors)]
+                        data.append(d)
+
+                        self.build(df_sub,
+                                   parent=item['id'],
+                                   name=str(idx0))
+
+                elif isinstance(idx, pd.Index):
+
+                    for k, idx0 in enumerate(idx):
+                        df_sub = dfc.xs(idx0)
+                        total = df_sub.sum()
+                        d = {
+                            'name': str(idx0),
+                            'y': total,
+                        }
+                        if self.set_precision:
+                            d['y'] = round(total, self.precision)
+                        if self.set_color:
+                            d['color'] = self.colors[k % len(self.colors)]
+                        data.append(d)
+
+                else:
+                    raise Exception('Pandas Index Unknown Problem')
+
+                item['data'] = data
+                self.items.append(item)
+                top_items.append(item)
+
+            return top_items
+
+        def series(self):
+            return self.top_item
+
+        def drilldown_series(self):
+            return self.items
+
+    dd = DrillDownBuilder(df,
+                          top_name=top_name,
+                          colorByPoint=colorByPoint,
+                          pointPlacement=pointPlacement,
+                          set_color=set_color,
+                          colors=colors,
+                          set_precision=set_precision,
+                          precision=precision)
+
+    return dd.series(), dd.drilldown_series()
+
+
+# def series_drilldown_orig(df, colorByPoint=True, pointPlacement='on', *args, **kwargs):
+#     idx = df.index
+#     col = df.columns
+#     assert(isinstance(idx, pd.core.index.MultiIndex))
+#     assert(len(idx.levshape) == 2)
+#     for c in col:
+#         assert df[c].dtype.kind in 'if'
+
+#     levone = list(idx.levels[0])
+#     data = []
+#     series = []
+#     drilldownSeries = []
+#     for co in col:
+#         data = []
+#         for c in levone:
+#             dfs = df.xs(c)
+#             ii = dfs[[co]].index.values.flatten()
+#             vv = dfs[[co]].values.flatten()
+
+#             d1 = {
+#                 'name': c,
+#                 'y': dfs[[co]].sum().values[0],
+#                 'drilldown': c + ' - ' + co if len(dfs) > 1 else None,
+#                 'pointPlacement': pointPlacement
+#             }
+#             if co in kwargs.get('color', []):
+#                 d1['color'] = kwargs['color'].get(co)
+#             data.append(d1)
+
+#             if len(dfs) > 1:
+#                 d2 = {
+#                     'name': c + ' - ' + co,
+#                     'data': [[str(ii[q]), vv[q]] for q in range(len(ii))],
+#                     'id': c + ' - ' + co,
+#                     'pointPlacement': pointPlacement
+#                 }
+#                 drilldownSeries.append(d2)
+
+#         s = {'name': co, 'data': data, 'colorByPoint': colorByPoint}
+#         if co in kwargs.get('color', []):
+#             s['color'] = kwargs['color'].get(co)
+#         series.append(s)
+
+#     return series, drilldownSeries
 
 
 def series_scatter(df, color_column=None, title_column=None, *args, **kwargs):
@@ -184,6 +356,9 @@ def series_tree(df,
                 precision=2):
 
     class TreeBuilder:
+        """
+        Recursive build of tree data structure
+        """
 
         def __init__(self,
                      df,
