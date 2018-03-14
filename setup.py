@@ -4,15 +4,18 @@
 # cf. https://pythonhosted.org/setuptools/setuptools.html
 
 # commands:
-# python setup.py sdist upload -r testpypi
+# one liner
 # python setup.py sdist upload -r pypi
+# 2 steps
+# python setup.py sdist
+# twine upload dist/*
 
 
 from setuptools import setup, find_packages
 from distutils.util import convert_path
-from pip.req import parse_requirements
 
-module = 'ezhc'
+packages = find_packages()
+module = packages[0]
 
 meta_ns = {}
 ver_path = convert_path(module + '/__meta__.py')
@@ -20,7 +23,7 @@ with open(ver_path) as ver_file:
     exec(ver_file.read(), meta_ns)
 
 name = meta_ns['__name__']
-packages = meta_ns['__packages__']
+packages = packages
 version = meta_ns['__version__']
 description = meta_ns['__description__']
 author = meta_ns['__author__']
@@ -32,9 +35,15 @@ license = meta_ns['__license__']
 classifiers = meta_ns['__classifiers__']
 include_package_data = meta_ns['__include_package_data__']
 package_data = meta_ns['__package_data__']
+zip_safe = meta_ns['__zip_safe__']
+entry_points = meta_ns['__entry_points__']
 
-install_requires = parse_requirements('requirements.txt', session=False)
-install_requires = [str(ir.req) for ir in install_requires]
+
+# read requirements.txt
+with open('requirements.txt', 'r') as f:
+    content = f.read()
+li_req = content.split('\n')
+install_requires = [e.strip() for e in li_req if len(e)]
 
 # with open('README.rst') as f:
 #     long_description = f.read()
@@ -54,5 +63,7 @@ setup(
     packages=packages,
     install_requires=install_requires,
     include_package_data=include_package_data,
-    package_data=package_data
+    package_data=package_data,
+    zip_safe=zip_safe,
+    entry_points=entry_points
 )
