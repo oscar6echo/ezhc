@@ -42,7 +42,7 @@ def opt_to_json(options, chart_id='chart_id', save=False, save_name=None, save_p
     return json_options
 
 
-def html(options, lib='hicharts', dated=True, save=False, save_name=None, save_path='saved', notebook=True,
+def html(options, lib='highcharts', dated=True, save=False, save_name=None, save_path='saved', notebook=True,
          html_init=None, js_option_postprocess=None, js_extra=None, callback=None, footer=None):
     """
     save=True will create a standalone HTML doc under save_path directory (after creating folder if necessary)
@@ -104,8 +104,30 @@ def html(options, lib='hicharts', dated=True, save=False, save_name=None, save_p
         return jQuery;
     });
 
-    require(%s, function() {
-        require(%s, function() {
+    // hardcoded var - temporary
+    require(%s, function(jquery,
+                         Highcharts,
+                         d3
+                         ) {
+        // hardcoded var - temporary
+        require(%s, function(hcMore,
+                             exporting,
+                             offLineExporting,
+                             exportData,
+                             drilldown,
+                             heatmap,
+                             treemap,
+                             sunburst,
+                             dataTables,
+                             ) {
+            hcMore(Highcharts);
+            exporting(Highcharts);
+            offLineExporting(Highcharts);
+            exportData(Highcharts);
+            drilldown(Highcharts);
+            heatmap(Highcharts);
+            treemap(Highcharts);
+            sunburst(Highcharts);
             %s
             %s
             %s
@@ -131,7 +153,7 @@ def html(options, lib='hicharts', dated=True, save=False, save_name=None, save_p
         return js_load + html + js
 
 
-def plot(options, lib='hicharts', dated=True, save=False, save_name=None, save_path='saved', notebook=True,
+def plot(options, lib='highcharts', dated=True, save=False, save_name=None, save_path='saved', notebook=True,
          html_init=None, js_option_postprocess=None, js_extra=None, callback=None, footer=None):
     contents = html(options, lib, dated, save, save_name, save_path, notebook,
                     html_init, js_option_postprocess, js_extra, callback, footer)

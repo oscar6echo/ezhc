@@ -16,16 +16,18 @@ JS_LIBS_ONE = json.dumps([
 
 JS_LIBS_ONE_sep = ';'.join(map(lambda x: 'console.log("'+x+'")', json.loads(JS_LIBS_ONE)))+';'
 
+# See CDN https://code.highcharts.com/
 
 JS_LIBS_TWO = json.dumps([
-    'https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js',
     'https://code.highcharts.com/stock/highcharts-more.js',
-    'https://code.highcharts.com/modules/drilldown.js',
-    'https://code.highcharts.com/modules/exporting.js',
-    'https://code.highcharts.com/modules/heatmap.js',
-    'https://code.highcharts.com/modules/treemap.js',
-    'https://code.highcharts.com/modules/sunburst.js',
-    'https://highcharts.github.io/export-csv/export-csv.js',
+    'https://code.highcharts.com/stock/modules/exporting.js',
+    'https://code.highcharts.com/stock/modules/offline-exporting.js',
+    'https://code.highcharts.com/stock/modules/export-data.js',
+    'https://code.highcharts.com/stock/modules/drilldown.js',
+    'https://code.highcharts.com/stock/modules/heatmap.js',
+    'https://code.highcharts.com/stock/modules/treemap.js',
+    'https://code.highcharts.com/stock/modules/sunburst.js',
+    'https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js',
 ])
 
 JS_LIBS_TWO_sep = ';'.join(map(lambda x: 'console.log("'+x+'")', json.loads(JS_LIBS_TWO)))+';'
