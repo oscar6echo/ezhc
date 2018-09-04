@@ -35,20 +35,23 @@ class Highcharts(Wrapper):
 
     def options_as_json(self, chart_id='chart_id', save=False, save_name=None, save_path='saved'):
         opt = self.to_dict()
-        return opt_to_json(opt, chart_id=chart_id, save=save, save_name=save_name, save_path=save_path)
+        return opt_to_json(opt, chart_id=chart_id, save=save, save_name=save_name,
+                           save_path=save_path)
 
     def plot(self, dated=True, save=False, save_name=None, save_path='saved', notebook=True,
-             html_init=None, js_option_postprocess=None, js_extra=None, callback=None):
+             html_init=None, js_option_postprocess=None, js_extra=None, callback=None,
+             version='latest', proxy=None):
         opt = self.to_dict()
         return plot(opt, lib='highcharts', dated=dated, save=save, save_name=save_name,
                     save_path=save_path, notebook=notebook,
                     html_init=html_init, js_option_postprocess=js_option_postprocess,
-                    js_extra=js_extra, callback=callback)
+                    js_extra=js_extra, callback=callback, version=version, proxy=proxy)
 
     def html(self, dated=True, save=False, save_name=None, save_path='saved', notebook=True,
-             html_init=None, js_option_postprocess=None, js_extra=None, callback=None):
+             html_init=None, js_option_postprocess=None, js_extra=None, callback=None,
+             version='latest', proxy=None):
         opt = self.to_dict()
         return html(opt, lib='highcharts', dated=dated, save=save, save_name=save_name,
                     save_path=save_path, notebook=notebook,
                     html_init=html_init, js_option_postprocess=js_option_postprocess,
-                    js_extra=js_extra, callback=callback)
+                    js_extra=js_extra, callback=callback, version=version, proxy=proxy)

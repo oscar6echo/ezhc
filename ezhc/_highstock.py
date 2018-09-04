@@ -38,18 +38,21 @@ class Highstock(Wrapper):
 
     def options_as_json(self, chart_id='chart_id', save=False, save_name=None, save_path='saved'):
         opt = self.to_dict()
-        return opt_to_json(opt, chart_id=chart_id, save=save, save_name=save_name, save_path=save_path)
+        return opt_to_json(opt, chart_id=chart_id, save=save, save_name=save_name,
+                           save_path=save_path)
 
     def html(self, dated=True, save=False, save_name=None, save_path='saved', notebook=True,
-             html_init=None, js_option_postprocess=None, js_extra=None, callback=None):
+             html_init=None, js_option_postprocess=None, js_extra=None, callback=None,
+             version='latest', proxy=None):
         opt = self.to_dict()
         return html(opt, lib='highstock', dated=dated, save=save, save_name=save_name,
                     save_path=save_path, notebook=notebook,
                     html_init=html_init, js_option_postprocess=js_option_postprocess,
-                    js_extra=js_extra, callback=callback)
+                    js_extra=js_extra, callback=callback, version=version, proxy=proxy)
 
     def plot(self, dated=True, save=False, save_name=None, save_path='saved', notebook=True,
-             html_init=None, js_option_postprocess=None, js_extra=None, callback=None, footer=None):
+             html_init=None, js_option_postprocess=None, js_extra=None, callback=None, footer=None,
+             version='latest', proxy=None):
         """Only Highstock. No add-on."""
         opt = self.to_dict()
         js_extra = JS_FINANCIAL_TIME_SERIES_0
@@ -58,9 +61,12 @@ class Highstock(Wrapper):
         return plot(opt, lib='highstock', dated=dated, save=save, save_name=save_name,
                     save_path=save_path, notebook=notebook,
                     html_init=html_init, js_option_postprocess=js_option_postprocess,
-                    js_extra=js_extra, callback=callback, footer=footer)
+                    js_extra=js_extra, callback=callback, footer=footer, version=version,
+                    proxy=proxy)
 
-    def plot_with_table_1(self, dated=True, save=False, save_name=None, save_path='saved', notebook=True, footer=None):
+    def plot_with_table_1(
+            self, dated=True, save=False, save_name=None, save_path='saved', notebook=True,
+            footer=None, version='latest', proxy=None):
         """
         Table with Perf, IRR, Vol, Sharpe Ratio, Max Drawdown
         Sharpe ratio is based on time series 'Cash' meaning cash compounded
@@ -75,9 +81,12 @@ class Highstock(Wrapper):
         return plot(opt, lib='highstock', dated=dated, save=save, save_name=save_name,
                     save_path=save_path, notebook=notebook,
                     html_init=html_init, js_option_postprocess=js_option_postprocess,
-                    js_extra=js_extra, callback=callback, footer=footer)
+                    js_extra=js_extra, callback=callback, footer=footer, 
+                    version='latest', proxy=None)
 
-    def plot_with_table_2(self, dated=True, save=False, save_name=None, save_path='saved', notebook=True, footer=None):
+    def plot_with_table_2(
+            self, dated=True, save=False, save_name=None, save_path='saved', notebook=True,
+            footer=None, version='latest', proxy=None):
         """
         Table with Min, Max, Average, Max Drawdown
         """
@@ -90,4 +99,5 @@ class Highstock(Wrapper):
         return plot(opt, lib='highstock', dated=dated, save=save, save_name=save_name,
                     save_path=save_path, notebook=notebook,
                     html_init=html_init, js_option_postprocess=js_option_postprocess,
-                    js_extra=js_extra, callback=callback, footer=footer)
+                    js_extra=js_extra, callback=callback, footer=footer,
+                    version=version, proxy=proxy)

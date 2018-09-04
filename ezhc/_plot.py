@@ -1,12 +1,13 @@
 
 import os
+import uuid
 import pandas as pd
 import datetime as dt
-import uuid
 from IPython.display import HTML
-
+from copy import deepcopy as copy
 
 from ._config import JS_LIBS_ONE, JS_LIBS_TWO, JS_SAVE
+from ._hc_versions import get_hc_versions
 from .scripts import JS_JSON_PARSE
 
 
@@ -42,8 +43,10 @@ def opt_to_json(options, chart_id='chart_id', save=False, save_name=None, save_p
     return json_options
 
 
-def html(options, lib='highcharts', dated=True, save=False, save_name=None, save_path='saved', notebook=True,
-         html_init=None, js_option_postprocess=None, js_extra=None, callback=None, footer=None):
+def html(
+        options, lib='highcharts', dated=True, save=False, save_name=None, save_path='saved',
+        notebook=True, html_init=None, js_option_postprocess=None, js_extra=None, callback=None,
+        footer=None, version='latest', proxy=None):
     """
     save=True will create a standalone HTML doc under save_path directory (after creating folder if necessary)
     """
@@ -56,6 +59,27 @@ def html(options, lib='highcharts', dated=True, save=False, save_name=None, save
     _options = dict(options)
     _options['chart']['renderTo'] = chart_id + 'container_chart'
     json_options = json_dumps(_options).replace('__uuid__', chart_id)
+
+    # HIGHCHARTS VERSION
+    hc_versions = get_hc_versions(proxy)
+    if version is None:
+        v = ''
+    elif version == 'latest':
+        v = hc_versions[-1] + '/'
+    else:
+        msg = 'version must be a valid highcharts version - see https://github.com/highcharts/highcharts/releases'
+        assert version in hc_versions, msg
+        v = version + '/'
+
+    JS_LIBS_ONE_version = copy(JS_LIBS_ONE)
+    for k, e in enumerate(JS_LIBS_ONE_version):
+        if 'highcharts.com' in e:
+            JS_LIBS_ONE_version[k] = e.format(v)
+
+    JS_LIBS_TWO_version = copy(JS_LIBS_TWO)
+    for k, e in enumerate(JS_LIBS_TWO_version):
+        if 'highcharts.com' in e:
+            JS_LIBS_TWO_version[k] = e.format(v)
 
     # HTML
     html_init = html_init if html_init else '<div id="__uuid__"><div id="__uuid__container_chart"></div></div>'
@@ -134,7 +158,8 @@ def html(options, lib='highcharts', dated=True, save=False, save_name=None, save
             %s
         });
     });
-    </script>""" % (JS_LIBS_ONE, JS_LIBS_TWO, js_option, js_extra, js_call, js_debug)
+    </script>""" % (JS_LIBS_ONE_version, JS_LIBS_TWO_version,
+                    js_option, js_extra, js_call, js_debug)
 
     # save
     js_load = ''.join(['<script src="%s"></script>' % e for e in JS_SAVE])
@@ -153,8 +178,11 @@ def html(options, lib='highcharts', dated=True, save=False, save_name=None, save
         return js_load + html + js
 
 
-def plot(options, lib='highcharts', dated=True, save=False, save_name=None, save_path='saved', notebook=True,
-         html_init=None, js_option_postprocess=None, js_extra=None, callback=None, footer=None):
+def plot(
+        options, lib='highcharts', dated=True, save=False, save_name=None, save_path='saved',
+        notebook=True, html_init=None, js_option_postprocess=None, js_extra=None, callback=None,
+        footer=None, version='latest', proxy=None):
     contents = html(options, lib, dated, save, save_name, save_path, notebook,
-                    html_init, js_option_postprocess, js_extra, callback, footer)
+                    html_init, js_option_postprocess, js_extra, callback, footer,
+                    version, proxy)
     return HTML(contents)

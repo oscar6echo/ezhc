@@ -1,7 +1,7 @@
 
 
-from ._config import load_js_libs
-
+# from ._config import load_js_libs
+from ._proxy import Proxy
 
 from ._highcharts import Highcharts
 from ._highstock import Highstock
@@ -22,4 +22,4 @@ __all__ = ['Highcharts',
            ]
 
 
-load_js_libs()
+# load_js_libs()
