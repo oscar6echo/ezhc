@@ -40,18 +40,20 @@ class Highcharts(Wrapper):
 
     def plot(self, dated=True, save=False, save_name=None, save_path='saved', notebook=True,
              html_init=None, js_option_postprocess=None, js_extra=None, callback=None,
-             version='latest', proxy=None):
+             version='latest', proxy=None, center=False):
         opt = self.to_dict()
         return plot(opt, lib='highcharts', dated=dated, save=save, save_name=save_name,
                     save_path=save_path, notebook=notebook,
                     html_init=html_init, js_option_postprocess=js_option_postprocess,
-                    js_extra=js_extra, callback=callback, version=version, proxy=proxy)
+                    js_extra=js_extra, callback=callback, version=version, proxy=proxy,
+                    center=center)
 
     def html(self, dated=True, save=False, save_name=None, save_path='saved', notebook=True,
              html_init=None, js_option_postprocess=None, js_extra=None, callback=None,
-             version='latest', proxy=None):
+             version='latest', proxy=None, center=False):
         opt = self.to_dict()
         return html(opt, lib='highcharts', dated=dated, save=save, save_name=save_name,
                     save_path=save_path, notebook=notebook,
                     html_init=html_init, js_option_postprocess=js_option_postprocess,
-                    js_extra=js_extra, callback=callback, version=version, proxy=proxy)
+                    js_extra=js_extra, callback=callback, version=version, proxy=proxy,
+                    center=center)

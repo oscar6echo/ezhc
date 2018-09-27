@@ -46,7 +46,7 @@ def opt_to_json(options, chart_id='chart_id', save=False, save_name=None, save_p
 def html(
         options, lib='highcharts', dated=True, save=False, save_name=None, save_path='saved',
         notebook=True, html_init=None, js_option_postprocess=None, js_extra=None, callback=None,
-        footer=None, version='latest', proxy=None):
+        footer=None, version='latest', proxy=None, center=False):
     """
     save=True will create a standalone HTML doc under save_path directory (after creating folder if necessary)
     """
@@ -82,10 +82,17 @@ def html(
             JS_LIBS_TWO_version[k] = e.format(v)
 
     # HTML
-    html_init = html_init if html_init else '<div id="__uuid__"><div id="__uuid__container_chart"></div></div>'
-    footer = footer if footer else ''
+    if center:
+        html = '<div style="text-align:center;"><div id="__uuid__container_chart" style="display: inline-block"></div></div>'
+    else:
+        html = '<div id="__uuid__container_chart"></div>'
 
-    html = html_init + footer
+    html_init = html_init if html_init else ''
+    if html_init:
+        html = html_init + html
+
+    footer = footer if footer else ''
+    html = html + footer
     html = html.replace('__uuid__', chart_id)
 
     # JS
@@ -181,8 +188,8 @@ def html(
 def plot(
         options, lib='highcharts', dated=True, save=False, save_name=None, save_path='saved',
         notebook=True, html_init=None, js_option_postprocess=None, js_extra=None, callback=None,
-        footer=None, version='latest', proxy=None):
+        footer=None, version='latest', proxy=None, center=False):
     contents = html(options, lib, dated, save, save_name, save_path, notebook,
                     html_init, js_option_postprocess, js_extra, callback, footer,
-                    version, proxy)
+                    version, proxy, center)
     return HTML(contents)
