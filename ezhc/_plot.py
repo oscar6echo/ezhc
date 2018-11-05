@@ -179,6 +179,10 @@ def html(
         with open(os.path.join(save_path, tag + dated + '.html'), 'w') as f:
             f.write(js_load + html + js)
 
+        with open(os.path.join(save_path, tag + dated + '-for-ezdashboard.html'), 'w') as f:
+            f.write(html + js)
+
+
     if notebook:
         return html + js
     else:
