@@ -2,12 +2,9 @@
 # cf. https://tom-christie.github.io/articles/pypi/
 
 # subfolders
-recursive-include ezhc/api *
-recursive-include ezhc/samples *
+recursive-include ezhc/api *.json
+recursive-include ezhc/samples df_*.csv
 recursive-include ezhc/script *
-recursive-include ezhc/script/themes *.json
-recursive-include ezhc/script/themes *.js
-recursive-include ezhc/script/themes *.ipynb
 recursive-exclude ezhc/script/themes/.ipynb_checkpoints *
 
 global-exclude *.py[co]
