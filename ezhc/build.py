@@ -9,7 +9,7 @@ def series(df, *args, **kwargs):
     idx = df.index
     col = df.columns
     data = df.values
-    assert(isinstance(idx, pd.core.index.Index))
+    assert(isinstance(idx, pd.Index))
 
     series = []
     for k, c in enumerate(col):
@@ -40,7 +40,7 @@ def series_range(df, *args, **kwargs):
     idx = df.index
     col = df.columns
     data = df.values
-    assert(isinstance(idx, pd.core.index.Index))
+    assert(isinstance(idx, pd.Index))
     assert(len(col) == 2)
     assert(df[col[0]].dtype.kind in 'if')
     assert(df[col[1]].dtype.kind in 'if')
@@ -58,7 +58,7 @@ def series_range(df, *args, **kwargs):
 def series_drilldown_orig(df, colorByPoint=True, pointPlacement='on', *args, **kwargs):
     idx = df.index
     col = df.columns
-    assert(isinstance(idx, pd.core.index.MultiIndex))
+    assert(isinstance(idx, pd.MultiIndex))
     assert(len(idx.levshape) == 2)
     for c in col:
         assert df[c].dtype.kind in 'if'
@@ -113,7 +113,7 @@ def series_drilldown(df,
                      **kwargs):
     idx = df.index
     col = df.columns
-    assert(isinstance(idx, pd.core.index.MultiIndex))
+    assert(isinstance(idx, pd.MultiIndex))
     for c in col:
         assert df[c].dtype.kind in 'if'
 
@@ -230,7 +230,7 @@ def series_drilldown(df,
 # def series_drilldown_orig(df, colorByPoint=True, pointPlacement='on', *args, **kwargs):
 #     idx = df.index
 #     col = df.columns
-#     assert(isinstance(idx, pd.core.index.MultiIndex))
+#     assert(isinstance(idx, pd.MultiIndex))
 #     assert(len(idx.levshape) == 2)
 #     for c in col:
 #         assert df[c].dtype.kind in 'if'
@@ -276,7 +276,7 @@ def series_drilldown(df,
 def series_scatter(df, color_column=None, title_column=None, *args, **kwargs):
     idx = df.index
     col = df.columns
-    assert(isinstance(idx, pd.core.index.MultiIndex))
+    assert(isinstance(idx, pd.MultiIndex))
     assert(len(idx.levshape) == 2)
     assert(len(col) <= 2)
     assert(df[color_column].dtype.kind in 'iO')
@@ -309,7 +309,7 @@ def series_scatter(df, color_column=None, title_column=None, *args, **kwargs):
 def series_bubble(df, *args, **kwargs):
     idx = df.index
     col = df.columns
-    assert(isinstance(idx, pd.core.index.MultiIndex))
+    assert(isinstance(idx, pd.MultiIndex))
     assert(len(idx.levshape) == 3)
     assert(len(col) == 1)
     assert(df[col[0]].dtype.kind in 'fib')
@@ -335,7 +335,7 @@ def series_bubble(df, *args, **kwargs):
 def series_heatmap(df, *args, **kwargs):
     idx = df.index
     col = df.columns
-    assert(isinstance(idx, pd.core.index.Index))
+    assert(isinstance(idx, pd.Index))
     for c in col:
         assert(df[c].dtype.kind in 'if')
 
