@@ -8,7 +8,7 @@
 # python setup.py sdist upload -r pypi
 # 2 steps
 # python setup.py sdist
-# twine upload dist/*
+# twine upload dist/* -r ezhc
 
 
 from setuptools import setup, find_packages
