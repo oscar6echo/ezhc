@@ -22,7 +22,7 @@ def series(df, *args, **kwargs):
                 'data': [[idx[q], v[q]] for q in range(len(v))],
             }
             for key in kwargs.keys():
-                if c == 'fillColor':
+                if key == 'fillColor':
                     d['type'] = 'area'
                     d['fillColor'] = kwargs['fillColor'].get(c)
                 elif c in kwargs.get(key, []):
