@@ -7,12 +7,13 @@
 # one liner
 # python setup.py sdist upload -r pypi
 # 2 steps
-# python setup.py sdist
+# python setup.py sdist bdist_wheel
 # twine upload dist/* -r ezhc
 
 
-from setuptools import setup, find_packages
 from distutils.util import convert_path
+
+from setuptools import find_packages, setup
 
 packages = find_packages()
 module = packages[0]
