@@ -28,7 +28,7 @@ class Wrapper(object):
     def __dir__(self):
         _dir = []
         _path = self.path.split('.')
-        if len(_path) == 1 and self.path is '':
+        if len(_path) == 1 and self.path == '':
             for attr in self.state._OPTION:
                 if len(attr.get(FULLNAME).split('.')) == 1:
                     _dir.append(attr.get(FULLNAME))
