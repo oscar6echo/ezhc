@@ -162,7 +162,7 @@ def series_drilldown(df,
 
                     for k, idx0 in enumerate(idx.levels[0]):
                         df_sub = dfc.xs(idx0)
-                        total = df_sub.sum()[0]
+                        total = df_sub.sum().iloc[0]
                         d = {
                             'name': str(idx0),
                             'y': total,
