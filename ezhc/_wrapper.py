@@ -1,7 +1,7 @@
 
 from IPython.display import HTML, display
 
-from ._config import FULLNAME, DESCRIPTION, DEMO
+from ._config import DEMO, DESCRIPTION, FULLNAME
 from ._state import State, state_HC, state_HS
 
 

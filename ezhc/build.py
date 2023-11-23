@@ -21,17 +21,12 @@ def series(df, *args, **kwargs):
                 'yAxis': int(sec),
                 'data': [[idx[q], v[q]] for q in range(len(v))],
             }
-            if c in kwargs.get('color', []):
-                d['color'] = kwargs['color'].get(c)
-            if c in kwargs.get('visible', []):
-                d['visible'] = kwargs['visible'].get(c)
-            if c in kwargs.get('fillColor', []):
-                d['type'] = 'area'
-                d['fillColor'] = kwargs['fillColor'].get(c)
-            if c in kwargs.get('lineColor', []):
-                d['lineColor'] = kwargs['lineColor'].get(c)
-            if kwargs.get('dashStyle', []):
-                d['dashStyle'] = kwargs['dashStyle'].get(c, 'Solid')
+            for key in kwargs.keys():
+                if key == 'fillColor':
+                    d['type'] = 'area'
+                    d['fillColor'] = kwargs['fillColor'].get(c)
+                elif c in kwargs.get(key, []):
+                    d[key] = kwargs[key].get(c)
             series.append(d)
     return series
 
@@ -167,7 +162,7 @@ def series_drilldown(df,
 
                     for k, idx0 in enumerate(idx.levels[0]):
                         df_sub = dfc.xs(idx0)
-                        total = df_sub.sum()[0]
+                        total = df_sub.sum().iloc[0]
                         d = {
                             'name': str(idx0),
                             'y': total,

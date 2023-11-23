@@ -1,5 +1,10 @@
+.idea/
 
 *.py[cod]
 saved/
 .vscode/
 *.ipynb_checkpoints/
+
+dist
+build
+*.egg-info
