@@ -27,7 +27,7 @@ def opt_to_json(options, chart_id='chart_id', save=False, save_name=None, save_p
     returns json of options for highcharts/highstocks object
     """
     def json_dumps(obj):
-        return pd.io.json.dumps(obj)
+        return pd.io.json.ujson_dumps(obj)
 
     _options = opt_to_dict(options, chart_id)
     json_options = json_dumps(_options)
