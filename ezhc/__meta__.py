@@ -3,7 +3,7 @@ __name__ = 'ezhc'
 name_url = __name__.replace('_', '-')
 
 __packages__ = [__name__]
-__version__ = '0.7.11'
+__version__ = '0.7.12'
 __description__ = 'easy Highcharts & Highstock, dynamic plots from pandas dataframes in the Jupyter notebook'
 __author__ = 'oscar6echo'
 __author_email__ = 'olivier.borderies@gmail.com'
